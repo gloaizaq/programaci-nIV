@@ -1,12 +1,67 @@
 # programaci-nIV
-Proyecto del curso programación IV
+<h1>Proyecto del curso programación IV</h1>
+<h2>Profesor: Josué Zuñiga</h2>
 
-Profesor: Josué Zuñiga
-
-Alumnos:
-  Josué Bolaños
-  Luis Bolaños
-  Minor Bonilla
-  Yendry Bustamante
-  Gustavo Loaiza
-  Luis Murillo
+  <table>
+  <tr>
+    <th colspan="2">
+      Participantes
+    </th>
+  </tr>
+  <tr>
+    <th>
+      Nombre
+    </td>
+    <th>
+      Apellido
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Josué
+    </td>
+    <td>
+      Bolaños
+    </td>
+  </tr>
+  <tr>
+      <td>
+        Luis 
+      </td>
+      <td>
+        Bolaños
+      </td>
+    </tr>
+  <tr>
+      <td>
+        Minor
+      </td>
+      <td>
+        Bonilla
+      </td>
+    </tr>
+  <tr>
+      <td>
+        Yendry 
+      </td>
+      <td>
+        Bustamante
+      </td>
+    </tr>
+  <tr>
+      <td>
+        Gustavo 
+      </td>
+      <td>
+        Loaiza
+      </td>
+    </tr>
+  <tr>
+      <td>
+        Luis 
+      </td>
+      <td>
+        Murillo
+      </td>
+    </tr>
+  </table>
