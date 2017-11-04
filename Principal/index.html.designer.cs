@@ -11,7 +11,7 @@ namespace Principal
 {
 
 
-    public partial class Prueba
+    public partial class index
     {
 
         /// <summary>
