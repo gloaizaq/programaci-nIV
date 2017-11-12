@@ -64,3 +64,9 @@ C:\Users\Gustavo Loaiza\Documents\Visual Studio 2015\Projects\programaci-nIV\Pri
 C:\Users\Gustavo Loaiza\Documents\Visual Studio 2015\Projects\programaci-nIV\Principal\obj\Debug\Principal.csprojResolveAssemblyReference.cache
 C:\Users\Gustavo Loaiza\Documents\Visual Studio 2015\Projects\programaci-nIV\Principal\obj\Debug\Principal.dll
 C:\Users\Gustavo Loaiza\Documents\Visual Studio 2015\Projects\programaci-nIV\Principal\obj\Debug\Principal.pdb
+C:\Users\Gustavo Loaiza\Documents\Visual Studio 2015\Projects\programaci-nIV\Principal\bin\BEL.dll
+C:\Users\Gustavo Loaiza\Documents\Visual Studio 2015\Projects\programaci-nIV\Principal\bin\BLL.dll
+C:\Users\Gustavo Loaiza\Documents\Visual Studio 2015\Projects\programaci-nIV\Principal\bin\BEL.pdb
+C:\Users\Gustavo Loaiza\Documents\Visual Studio 2015\Projects\programaci-nIV\Principal\bin\BLL.pdb
+C:\Users\Gustavo Loaiza\Documents\Visual Studio 2015\Projects\programaci-nIV\Principal\bin\DAL.dll
+C:\Users\Gustavo Loaiza\Documents\Visual Studio 2015\Projects\programaci-nIV\Principal\bin\DAL.pdb

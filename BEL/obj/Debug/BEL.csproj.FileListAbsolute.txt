@@ -1,0 +1,5 @@
+C:\Users\Gustavo Loaiza\Documents\Visual Studio 2015\Projects\programaci-nIV\BEL\bin\Debug\BEL.dll
+C:\Users\Gustavo Loaiza\Documents\Visual Studio 2015\Projects\programaci-nIV\BEL\bin\Debug\BEL.pdb
+C:\Users\Gustavo Loaiza\Documents\Visual Studio 2015\Projects\programaci-nIV\BEL\obj\Debug\BEL.dll
+C:\Users\Gustavo Loaiza\Documents\Visual Studio 2015\Projects\programaci-nIV\BEL\obj\Debug\BEL.pdb
+C:\Users\Gustavo Loaiza\Documents\Visual Studio 2015\Projects\programaci-nIV\BEL\obj\Debug\BEL.csprojResolveAssemblyReference.cache
