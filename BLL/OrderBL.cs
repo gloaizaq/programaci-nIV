@@ -15,5 +15,10 @@ namespace BLL
             OrdersDA ordersDAL = new OrdersDA();
             return ordersDAL.GetOrders();
         }
+
+        public static void AddOrder(Order order)
+        {
+            OrdersDA.AddOrder(order);
+        }
     }
 }

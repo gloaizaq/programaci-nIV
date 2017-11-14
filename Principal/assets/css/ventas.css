@@ -1,4 +1,9 @@
-﻿/***************** Estilo para paginación *****************/
+﻿/***************** Cuerpo *****************/
+body {
+   font-family: 'Roboto', sans-serif;
+   /*font-family: 'Montserrat', sans-serif;*/
+}
+/***************** Estilo para paginación *****************/
 .contenedor-numeros {
   text-align: center;
 }
@@ -46,7 +51,7 @@
 }
 
 /***************** Tablas *****************/
-table {
+.tabla-lista {
     cursor:pointer;
   border-collapse: collapse;
   width: 100%;
@@ -67,7 +72,6 @@ tbody tr:hover {
 /***************** botones *****************/
 .btn {
   box-sizing: border-box;
-  /*appearance: none;*/
   background-color: transparent;
   border: 2px solid #96ADC8;
   border-radius: 0.6em;
@@ -92,8 +96,40 @@ tbody tr:hover {
     border-color: #586994;
     outline: 0;
 }
-/***************** Region *****************/
-/***************** Region *****************/
+/***************** Form *****************/
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.blur div:not(#popup) {
+  filter: blur(3px);
+}
+
+.oculto {
+    display: none;
+}
+
+/***************** Div contenedor *****************/
+.contenedor {
+    width: 50%;
+    margin: 0 auto;
+}
+.row
+{
+    display: table;
+    width:auto;
+}
+.col
+{
+    display: table-cell;
+    
+}
 /***************** Region *****************/
 /***************** Region *****************/
 /***************** Region *****************/

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BEL;
+using System.Data.SqlClient;
 
 namespace DAL
 {
@@ -46,5 +47,29 @@ namespace DAL
             }
         }
 
+        public static void AddOrder(Order orden)
+        {
+            Connection conexion = new Connection();
+            try
+            {
+                SqlCommand cmd = new SqlCommand("sp_AddOrder", conexion.Con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@CustomerID", orden.CustomerID));
+                cmd.Parameters.Add(new SqlParameter("@EmployeeID", orden.EmployeeID));
+                cmd.Parameters.Add(new SqlParameter("@OrderDate", orden.OrderDate));
+                cmd.Parameters.Add(new SqlParameter("@RequiredDate", orden.RequiredDate));
+                cmd.Parameters.Add(new SqlParameter("@ShippedDate", orden.ShippedDate));
+                cmd.Parameters.Add(new SqlParameter("@ShipVia", orden.ShipVia));
+                cmd.Parameters.Add(new SqlParameter("@Freight", orden.Freight));
+                cmd.Parameters.Add(new SqlParameter("@ShipName", orden.ShipName));
+                cmd.Parameters.Add(new SqlParameter("@IdState", orden.IdState));
+                conexion.AbrirConexionBD();
+                cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                conexion.CerrarConexionBD();
+            }
+        }
     }
 }

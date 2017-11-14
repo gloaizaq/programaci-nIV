@@ -6,6 +6,7 @@
 <head runat="server">
     <title></title>
     <link href="../assets/css/ventas.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -13,7 +14,7 @@
         <asp:Button CssClass="btn" ID="nuevaOrden" OnClick="nuevaOrden_Click" runat="server" Text="Nueva orden" />
         <asp:ListView ID="lvOrders" ItemPlaceholderID="Contenido" runat="server">
             <LayoutTemplate>
-                <table runat="server" id="tablaOrders" >
+                <table class="tabla-lista" runat="server" id="tablaOrders" >
                    <tr runat="server" id="Encabezado">
                     <th runat="server">ID</th>
                     <th runat="server">Comprador</th>
@@ -49,8 +50,10 @@
             <ItemTemplate>
                 <tr runat="server">
                   <td runat="server">
-                    <asp:Label ID="orderIdLabel" runat="server" 
-                      Text='<%#Eval("OrderID") %>' />
+                    <a href="<%#Eval("OrderID") %>">
+                        <asp:Label ID="orderIdLabel" runat="server" 
+                        Text='<%#Eval("OrderID") %>' />
+                    </a>
                   </td>
                     <td runat="server">
                     <asp:Label ID="Label1" runat="server" 

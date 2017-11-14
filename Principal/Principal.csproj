@@ -94,7 +94,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\css\popup.css" />
     <Content Include="assets\css\ventas.css" />
+    <Content Include="assets\js\main.js" />
+    <Content Include="assets\js\popup.js" />
     <Content Include="index.html" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
