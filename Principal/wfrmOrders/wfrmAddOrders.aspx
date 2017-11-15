@@ -67,7 +67,7 @@
 
 
             <%-- VALIDAR LAS ENTRADAS DEL USUARIO --%>
-
+            <%--EL DESCUENTO DEBE ESTAR ENTRE 0 Y 1--%>
 
 
 

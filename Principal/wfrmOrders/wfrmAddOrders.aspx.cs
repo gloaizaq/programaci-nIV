@@ -47,7 +47,7 @@ namespace Principal.wfrmOrders
             dropDown.DataValueField = value;
             dropDown.DataBind();
         }
-        private void AddOrder()
+        private int AddOrder()
         {
             Order order = new Order();
             order.CustomerID = "PERIC";//customerDropDownList.SelectedValue;
@@ -60,17 +60,22 @@ namespace Principal.wfrmOrders
             order.ShipName = shipNameTextBox.Text.Trim();
             order.IdState = Convert.ToInt32(stateDropDownList.SelectedValue);
             
-            OrderBL.AddOrder(order);
+            return OrderBL.AddOrder(order);
         }
         private void AddOrderDetails(int orderID)
         {
-
+            foreach(var detail in orderDetails)
+            {
+                detail.OrderID = orderID;
+                OrderBL.AddOrderDetail(detail);
+            }
         }
         protected void btnAddOrden_Click(object sender, EventArgs e)
         {
             try
             {
-                AddOrder();
+                int orderID = AddOrder();
+                AddOrderDetails(orderID);
                 Response.Redirect("wfrmOrdersList.aspx");
             }
             catch (Exception)

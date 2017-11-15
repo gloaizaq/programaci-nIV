@@ -12,13 +12,17 @@ namespace BLL
     {
         public static List<Order> GetOrders()
         {
-            OrdersDA ordersDAL = new OrdersDA();
+            OrderDA ordersDAL = new OrderDA();
             return ordersDAL.GetOrders();
         }
 
-        public static void AddOrder(Order order)
+        public static int AddOrder(Order order)
         {
-            OrdersDA.AddOrder(order);
+            return OrderDA.AddOrder(order);
+        }
+        public static void AddOrderDetail(OrderDetail orderDetail)
+        {
+            OrderDA.AddOrderDetail(orderDetail);
         }
     }
 }

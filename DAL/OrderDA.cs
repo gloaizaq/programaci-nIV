@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
-    public class OrdersDA
+    public class OrderDA
     {
         public List<Order> GetOrders()
         {
@@ -47,7 +47,7 @@ namespace DAL
             }
         }
 
-        public static void AddOrder(Order orden)
+        public static int AddOrder(Order orden)
         {
             Connection conexion = new Connection();
             try
@@ -63,6 +63,29 @@ namespace DAL
                 cmd.Parameters.Add(new SqlParameter("@Freight", orden.Freight));
                 cmd.Parameters.Add(new SqlParameter("@ShipName", orden.ShipName));
                 cmd.Parameters.Add(new SqlParameter("@IdState", orden.IdState));
+
+                conexion.AbrirConexionBD();
+                //cmd.ExecuteNonQuery();
+                return (int) cmd.ExecuteScalar();
+            }
+            finally
+            {
+                conexion.CerrarConexionBD();
+            }
+        }
+        public static void AddOrderDetail(OrderDetail orderDetail)
+        {
+            Connection conexion = new Connection();
+            try
+            {
+                SqlCommand cmd = new SqlCommand("sp_AddOrderDetail", conexion.Con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@OrderID", orderDetail.OrderID));
+                cmd.Parameters.Add(new SqlParameter("@ProductID", orderDetail.ProductID));
+                cmd.Parameters.Add(new SqlParameter("@UnitPrice", orderDetail.UnitPrice));
+                cmd.Parameters.Add(new SqlParameter("@Quantity", orderDetail.Quantity));
+                cmd.Parameters.Add(new SqlParameter("@Discount", orderDetail.Discount));
+
                 conexion.AbrirConexionBD();
                 cmd.ExecuteNonQuery();
             }
