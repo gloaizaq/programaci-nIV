@@ -47,25 +47,30 @@ namespace Principal.wfrmOrders
             dropDown.DataValueField = value;
             dropDown.DataBind();
         }
+        private void AddOrder()
+        {
+            Order order = new Order();
+            order.CustomerID = "PERIC";//customerDropDownList.SelectedValue;
+            order.EmployeeID = 1;//Convert.ToInt32(employeeDropDownList.SelectedValue);
+            order.OrderDate = DateTime.ParseExact(orderDateTextBox.Text.Trim(), "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+            order.RequiredDate = DateTime.ParseExact(requiredDateTextBox.Text.Trim(), "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+            order.ShippedDate = DateTime.ParseExact(shippedDateTextBox.Text.Trim(), "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+            order.ShipVia = 1;//Convert.ToInt32(shipViaDropDownList.SelectedValue);
+            order.Freight = Convert.ToDouble(freightTextBox.Text.Trim());
+            order.ShipName = shipNameTextBox.Text.Trim();
+            order.IdState = Convert.ToInt32(stateDropDownList.SelectedValue);
+            
+            OrderBL.AddOrder(order);
+        }
+        private void AddOrderDetails(int orderID)
+        {
 
+        }
         protected void btnAddOrden_Click(object sender, EventArgs e)
         {
             try
             {
-                Order order = new Order();
-                order.CustomerID = "ALFKI";//customerDropDownList.SelectedValue;
-                order.EmployeeID = 1;//Convert.ToInt32(employeeDropDownList.SelectedValue);
-                order.OrderDate = DateTime.ParseExact(orderDateTextBox.Text.Trim(), "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
-                order.RequiredDate = DateTime.ParseExact(requiredDateTextBox.Text.Trim(), "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
-                order.ShippedDate = DateTime.ParseExact(shippedDateTextBox.Text.Trim(), "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
-                order.ShipVia = 1;//Convert.ToInt32(shipViaDropDownList.SelectedValue);
-                order.Freight = Convert.ToDouble(freightTextBox.Text.Trim());
-                order.ShipName = shipNameTextBox.Text.Trim();
-                order.IdState = Convert.ToInt32(stateDropDownList.SelectedValue);
-                
-                //TODO: Es necesario agregar detalles a la orden
-                OrderBL.AddOrder(order);
-
+                AddOrder();
                 Response.Redirect("wfrmOrdersList.aspx");
             }
             catch (Exception)
@@ -82,7 +87,14 @@ namespace Principal.wfrmOrders
                 orderDetail.ProductID = 1;//Convert.ToInt32(productDropDownList.SelectedValue);
                 orderDetail.UnitPrice = 1000;// Convert.ToDouble(unitPriceTextBox.Text.Trim());
                 orderDetail.Quantity = Convert.ToInt16(quantityTextBox.Text.Trim());
-                orderDetail.Discount = Convert.ToSingle(discountTextBox.Text.Trim());
+                if (discountTextBox.Text.Trim().Equals(String.Empty))
+                {
+                    orderDetail.Discount = 0;
+                }
+                else
+                {
+                    orderDetail.Discount = Convert.ToSingle(discountTextBox.Text.Trim());
+                }
 
                 orderDetails.Add(orderDetail);
 

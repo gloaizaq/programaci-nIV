@@ -20,6 +20,11 @@ namespace BEL
         public string ShipName { get; set; }
         public int IdState { get; set; }
 
+        public string OrderDateString()
+        {
+            return OrderDate.ToString("dd MM yyyy");
+        }
+
         //public static Order Create(IDataRecord record)
         //{
         //    return new Order

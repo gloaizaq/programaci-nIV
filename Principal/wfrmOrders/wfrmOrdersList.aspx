@@ -65,15 +65,15 @@
                   </td>
                     <td runat="server">
                     <asp:Label ID="Label3" runat="server" 
-                      Text='<%#Eval("OrderDate") %>' />
+                      Text='<%#Eval("OrderDate", "{0:dd-MM-yyyy}") %>' />
                   </td>
                     <td runat="server">
                     <asp:Label ID="Label4" runat="server" 
-                      Text='<%#Eval("RequiredDate") %>' />
+                      Text='<%#Eval("RequiredDate", "{0:dd-MM-yyyy}") %>' />
                   </td>
                     <td runat="server">
                     <asp:Label ID="Label5" runat="server" 
-                      Text='<%#Eval("ShippedDate") %>' />
+                      Text='<%#Eval("ShippedDate", "{0:dd-MM-yyyy}") %>' />
                   </td>
                     <td runat="server">
                     <asp:Label ID="Label6" runat="server" 

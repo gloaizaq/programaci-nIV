@@ -83,6 +83,8 @@
                         <label for="unitPriceTextBox">Precio por unidad</label>
                         <asp:TextBox ID="unitPriceTextBox" runat="server" ReadOnly="true"></asp:TextBox>
                     </div>
+                </div>
+                <div class="row">
                     <div class="col">
                         <label for="quantityTextBox">Cantidad</label>
                         <asp:TextBox ID="quantityTextBox" runat="server"></asp:TextBox>
@@ -91,6 +93,8 @@
                         <label for="discountTextBox">Descuento</label>
                         <asp:TextBox ID="discountTextBox" runat="server"></asp:TextBox>
                     </div>
+                </div>
+                <div class="row">
                     <div class="col">
                         <label for="btnAgregarDetalle">&nbsp;</label>
                         <asp:Button ID="btnAgregarDetalle" CssClass="btn" OnClick="btnAgregarDetalle_Click" runat="server" Text="Agregar" />

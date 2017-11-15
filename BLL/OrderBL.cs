@@ -8,9 +8,9 @@ using DAL;
 
 namespace BLL
 {
-    public class OrderBL
+    public static class OrderBL
     {
-        public List<Order> GetOrders()
+        public static List<Order> GetOrders()
         {
             OrdersDA ordersDAL = new OrdersDA();
             return ordersDAL.GetOrders();

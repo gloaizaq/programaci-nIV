@@ -25,8 +25,7 @@ namespace Principal
 
         private void BindListView()
         {
-            OrderBL orderBL = new OrderBL();
-            lvOrders.DataSource = orderBL.GetOrders();
+            lvOrders.DataSource = OrderBL.GetOrders();
             lvOrders.DataBind();
         }
 
