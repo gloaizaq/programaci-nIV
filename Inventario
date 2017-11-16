@@ -1,0 +1,35 @@
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+        }
+    </style>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <h1>Inventario</h1>
+    <p></p>
+    <table style="width: 100%;">
+        <tr>
+            <td>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <asp:Button ID="Button1" runat="server" Text="Categorias" Width="180px" Height="50px" OnClick="Button1_Click"/>
+                <p></p>
+                <asp:Button ID="btnproveedores" runat="server" Text="Proveedores" Width="180px" Height="50px" OnClick="Button2_Click" />
+                <p></p>
+                <asp:Button ID="btnProductos" runat="server" Text="Productos" Width="180px" Height="50px" OnClick="Button3_Click" />
+            </td>
+            <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+        
+</asp:Content>
+
