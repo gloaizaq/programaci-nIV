@@ -1,15 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfrmOrdersList.aspx.cs" Inherits="Principal.wfrmOrdersList" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Dummy.Master" AutoEventWireup="true" CodeBehind="wfrmOrdersList.aspx.cs" Inherits="Principal.wfrmOrdersList" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-    <link href="../assets/css/ventas.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto" rel="stylesheet" />
-</head>
-<body>
-    <form id="form1" runat="server">
+<asp:Content ID="BodyContent" ContentPlaceHolderID="BodyContent" runat="server">
     <div>
         <asp:Button CssClass="btn" ID="nuevaOrden" OnClick="nuevaOrden_Click" runat="server" Text="Nueva orden" />
         <asp:ListView ID="lvOrders" ItemPlaceholderID="Contenido" runat="server">
@@ -95,6 +86,5 @@
               </ItemTemplate>
         </asp:ListView>
     </div>
-    </form>
-</body>
-</html>
+</asp:Content>
+
