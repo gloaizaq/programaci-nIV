@@ -103,8 +103,10 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="WebForm1.aspx" />
     <Content Include="wfrmOrders\wfrmAddOrders.aspx" />
     <Content Include="wfrmOrders\wfrmOrdersList.aspx" />
+    <Content Include="Dummy.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -118,6 +120,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dummy.Master.cs">
+      <DependentUpon>Dummy.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dummy.Master.designer.cs">
+      <DependentUpon>Dummy.Master</DependentUpon>
+    </Compile>
     <Compile Include="index.html.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -125,6 +134,13 @@
       <DependentUpon>index.html.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="wfrmOrders\wfrmAddOrders.aspx.cs">
       <DependentUpon>wfrmAddOrders.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

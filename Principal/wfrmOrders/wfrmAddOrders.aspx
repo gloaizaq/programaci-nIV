@@ -1,6 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfrmAddOrders.aspx.cs" Inherits="Principal.wfrmOrders.wfrmAddOrders" %>
+﻿<%--<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfrmAddOrders.aspx.cs" Inherits="Principal.wfrmOrders.wfrmAddOrders" %>--%>
+<%@ Page Language="C#" MasterPageFile="~/Dummy.Master" AutoEventWireup="true" CodeBehind="wfrmAddOrders.aspx.cs" Inherits="Principal.wfrmOrders.wfrmAddOrders" %>
 
-<!DOCTYPE html>
+<%--<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -16,7 +17,13 @@
     <script src="../assets/js/popup.js"></script>
 </head>
 <body>
-    <form id="frmNewOrder" runat="server">
+    <form id="frmNewOrder" runat="server">--%>
+<asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
+    <script src="../assets/js/popup.js"></script>
+    <link href="../assets/css/popup.css" rel="stylesheet" />
+</asp:Content>
+<asp:Content ID="BodyContent" ContentPlaceHolderID="BodyContent" runat="server">
+
         <div class="contenedor">
             <h1>Nueva orden</h1>
             <div class="row">
@@ -159,7 +166,9 @@
             </ItemTemplate>
         </asp:ListView>
         <asp:Button ID="btnAddOrden" OnClick="btnAddOrden_Click" CssClass="btn" runat="server" Text="Crear Orden" />
-         </div>         
+         </div>      
+    </asp:Content>
+<%--   
     </form>
 </body>
-</html>
+</html>--%>

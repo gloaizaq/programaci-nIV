@@ -1,0 +1,33 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Dummy.master.cs" Inherits="Principal.Dummy" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <%--Importes desde fuera--%>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto" rel="stylesheet" />
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+        crossorigin="anonymous">
+    </script>
+    <%--Mis imports--%>
+    <link href="assets/css/ventas.css" rel="stylesheet" />
+    
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+        
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder ID="BodyContent" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+    <%--<script src='<%= ResolveUrl("~/assets/js/main.js") %>'></script>--%>
+    <%--<script src='<%= ResolveUrl("~/assets/js/popup.js") %>'></script>--%>
+</body>
+</html>
