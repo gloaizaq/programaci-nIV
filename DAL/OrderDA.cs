@@ -16,7 +16,7 @@ namespace DAL
             Connection conexion = new Connection();
             try
             {
-                var reader = conexion.ExecSp("sp_GetOrders");
+                var reader = conexion.ExecStoredProc("sp_GetOrders");
                 List<Order> orders = new List<Order>();
                 while (reader.Read())
                 {
@@ -46,7 +46,46 @@ namespace DAL
                 conexion.CerrarConexionBD();
             }
         }
+        public static Order GetOrderById(int orderId)
+        {
+            Connection conexion = new Connection();
+            try
+            {
+                List<SqlParameter> parametros = new List<SqlParameter>();
+                parametros.Add(new SqlParameter("@OrderID", orderId));
 
+                var reader = conexion.ExecStoredProc("sp_GetOrderByID", parametros);
+                
+                if (!reader.Read())
+                    throw new InvalidOperationException("No hay datos.");
+
+                Order order = new Order();
+                order.OrderID = Convert.ToInt32(reader["OrderID"]);
+                order.CustomerID = reader["CustomerID"].ToString();
+                order.EmployeeID = Convert.ToInt32(reader["EmployeeID"]);
+                order.OrderDate = Convert.ToDateTime(reader["OrderDate"]);
+                order.RequiredDate = Convert.ToDateTime(reader["RequiredDate"]);
+
+                if (reader["ShippedDate"] != DBNull.Value)
+                {
+                    order.ShippedDate = Convert.ToDateTime(reader["ShippedDate"]);
+                }
+
+                order.ShipVia = Convert.ToInt32(reader["ShipVia"]);
+                order.Freight = Convert.ToInt32(reader["Freight"]);
+                order.ShipName = reader["ShipName"].ToString();
+                order.IdState = Convert.ToInt32(reader["IdState"]);
+
+                if (reader.Read())
+                    throw new InvalidOperationException("Se devolvió más de un dato.");
+
+                return order;
+            }
+            finally
+            {
+                conexion.CerrarConexionBD();
+            }
+        }
         public static int AddOrder(Order orden)
         {
             Connection conexion = new Connection();

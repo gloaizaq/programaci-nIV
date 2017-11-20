@@ -24,5 +24,9 @@ namespace BLL
         {
             OrderDA.AddOrderDetail(orderDetail);
         }
+        public static Order GetOrderById(int orderId)
+        {
+            return OrderDA.GetOrderById(orderId);
+        }
     }
 }

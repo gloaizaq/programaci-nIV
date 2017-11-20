@@ -31,7 +31,15 @@ namespace Principal
 
         protected void nuevaOrden_Click(object sender, EventArgs e)
         {
-            Response.Redirect("wfrmAddOrders.aspx");
+            Response.Redirect(resources.AspPages.AddOrders);
+        }
+
+        protected void OrderDetail_ServerClick(object sender, EventArgs e)
+        {
+            ListViewDataItem item = (ListViewDataItem)(sender as Control).NamingContainer;
+            Label orderIdLabel = (Label)item.FindControl("orderIdLabel");
+            Session["orderID"] = orderIdLabel.Text;
+            Response.Redirect(resources.AspPages.OrderDetail);   
         }
     }
 }

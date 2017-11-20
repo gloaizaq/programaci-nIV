@@ -52,7 +52,7 @@ body {
 
 /***************** Tablas *****************/
 .tabla-lista {
-    cursor:pointer;
+    cursor:default;
   border-collapse: collapse;
   width: 100%;
 }
@@ -130,7 +130,12 @@ input[type=text], select {
     display: table-cell;
     
 }
-/***************** Region *****************/
+/***************** HyperLink *****************/
+.icono {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
 /***************** Region *****************/
 /***************** Region *****************/
 /***************** Region *****************/

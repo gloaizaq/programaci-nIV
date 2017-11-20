@@ -12,7 +12,7 @@ namespace DAL
 {
     public class Connection
     {
-        private SqlConnection con; // Obj Conexion
+        private SqlConnection con;
         public SqlConnection Con
         {
             get { return con; }
@@ -23,25 +23,28 @@ namespace DAL
             string miCadenaConexion = ConfigurationManager.ConnectionStrings["miCadena"].ConnectionString;
             Con = new SqlConnection(miCadenaConexion);
         }
-        /// <summary>
-        /// Metodo para Abrir la Conexion
-        /// </summary>
+       
         public void AbrirConexionBD()
         {
             Con.Open();
         }
-        /// <summary>
-        /// Metodo para Cerrar la Conexion
-        /// </summary>
+       
         public void CerrarConexionBD()
         {
             Con.Close();
         }
 
-        public SqlDataReader ExecSp(string sp)
+        public SqlDataReader ExecStoredProc(string sp, List<SqlParameter> parametros = null)
         {
             SqlCommand cmd = new SqlCommand(sp, Con);
             cmd.CommandType = CommandType.StoredProcedure;
+            if (parametros != null)
+            {
+                foreach (var param in parametros)
+                {
+                    cmd.Parameters.Add(param);
+                }
+            }
             AbrirConexionBD();
             return cmd.ExecuteReader();
         }

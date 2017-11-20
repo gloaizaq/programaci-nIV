@@ -17,6 +17,8 @@
                     <th runat="server">Carga</th>
                     <th runat="server">Nombre envío</th>
                     <th runat="server">Estado</th>
+                    <th runat="server"><i class="fa fa-eye" aria-hidden="true"></i></th>
+                    <th runat="server"><i class="fa fa-trash" aria-hidden="true"></i></th>
                 </tr>
                 <tr runat="server" id="Contenido" ></tr>
                     <tr>
@@ -41,10 +43,10 @@
             <ItemTemplate>
                 <tr runat="server">
                   <td runat="server">
-                    <a href="<%#Eval("OrderID") %>">
+                    <%--<a ID="OrderDetail" runat="server" OnServerClick="OrderDetail_ServerClick">--%>
                         <asp:Label ID="orderIdLabel" runat="server" 
                         Text='<%#Eval("OrderID") %>' />
-                    </a>
+                    <%--</a>--%>
                   </td>
                     <td runat="server">
                     <asp:Label ID="Label1" runat="server" 
@@ -66,21 +68,31 @@
                     <asp:Label ID="Label5" runat="server" 
                       Text='<%#Eval("ShippedDate", "{0:dd-MM-yyyy}") %>' />
                   </td>
-                    <td runat="server">
+                  <td runat="server">
                     <asp:Label ID="Label6" runat="server" 
                       Text='<%#Eval("ShipVia") %>' />
                   </td>
-                    <td runat="server">
+                  <td runat="server">
                     <asp:Label ID="Label7" runat="server" 
                       Text='<%#Eval("Freight") %>' />
                   </td>
-                    <td runat="server">
+                  <td runat="server">
                     <asp:Label ID="Label8" runat="server" 
                       Text='<%#Eval("ShipName") %>' />
                   </td>
-                    <td runat="server">
+                  <td runat="server">
                     <asp:Label ID="Label9" runat="server" 
                       Text='<%#Eval("IdState") %>' />
+                  </td>
+                  <td runat="server">
+                    <a class="icono" ID="detail" runat="server" OnServerClick="OrderDetail_ServerClick">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                    </a>
+                  </td>
+                    <td runat="server">
+                    <a class="icono" ID="delete" runat="server" OnServerClick="OrderDetail_ServerClick">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </a>
                   </td>
                 </tr>
               </ItemTemplate>

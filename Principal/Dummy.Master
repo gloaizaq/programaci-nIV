@@ -12,9 +12,10 @@
         integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
         crossorigin="anonymous">
     </script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <%--Mis imports--%>
     <link href="assets/css/ventas.css" rel="stylesheet" />
-    
+    <link href="assets/css/navbar.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
         
     </asp:ContentPlaceHolder>
@@ -22,12 +23,24 @@
 <body>
     <form id="form1" runat="server">
     <div>
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Productos</a></li>
+            <li><a href="#">Compra</a></li>
+            <li><a href="#">Tranportistas</a></li>
+            <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Ordenes</a>
+            <div class="dropdown-content">
+                <a href="#">Lista</a>
+                <a href="#">Agregar</a>
+                <a href="#">Estados</a>
+            </div>
+            </li>
+        </ul>
         <asp:ContentPlaceHolder ID="BodyContent" runat="server">
         
         </asp:ContentPlaceHolder>
     </div>
     </form>
-    <%--<script src='<%= ResolveUrl("~/assets/js/main.js") %>'></script>--%>
-    <%--<script src='<%= ResolveUrl("~/assets/js/popup.js") %>'></script>--%>
 </body>
 </html>

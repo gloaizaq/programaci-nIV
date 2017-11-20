@@ -76,7 +76,8 @@ namespace Principal.wfrmOrders
             {
                 int orderID = AddOrder();
                 AddOrderDetails(orderID);
-                Response.Redirect("wfrmOrdersList.aspx");
+
+                Response.Redirect(resources.AspPages.OrderList);
             }
             catch (Exception)
             {

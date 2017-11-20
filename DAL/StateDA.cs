@@ -14,7 +14,7 @@ namespace DAL
             Connection conexion = new Connection();
             try
             {
-                var reader = conexion.ExecSp("sp_GetActiveStates");
+                var reader = conexion.ExecStoredProc("sp_GetActiveStates");
                 List<State> states = new List<State>();
                 while (reader.Read())
                 {
