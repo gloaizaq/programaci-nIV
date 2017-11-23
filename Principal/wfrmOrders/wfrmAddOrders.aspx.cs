@@ -62,7 +62,7 @@ namespace Principal.wfrmOrders
             
             return OrderBL.AddOrder(order);
         }
-        private void AddOrderDetails(int orderID)
+        private void AddOrderDetail(int orderID)
         {
             foreach(var detail in orderDetails)
             {
@@ -75,7 +75,7 @@ namespace Principal.wfrmOrders
             try
             {
                 int orderID = AddOrder();
-                AddOrderDetails(orderID);
+                AddOrderDetail(orderID);
 
                 Response.Redirect(resources.AspPages.OrderList);
             }
