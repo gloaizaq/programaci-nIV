@@ -23,14 +23,14 @@ namespace DAL
         }
         public static Order GetOrderById(int orderId)
         {
-            using (VentasCxtDataContext ctx = new VentasCxtDataContext())
-            {
-                var orders = from order in ctx.Orders
-                             where order.OrderID == orderId
-                             select order;
+            VentasCxtDataContext ctx = new VentasCxtDataContext();
+            
+            var orders = from order in ctx.Orders
+                            where order.OrderID == orderId
+                            select order;
 
-                return orders.SingleOrDefault();
-            }
+            return orders.SingleOrDefault();
+            
         }
         public static void AddOrder(Order order)
         {

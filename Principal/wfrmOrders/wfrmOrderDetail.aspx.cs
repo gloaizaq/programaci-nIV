@@ -25,15 +25,15 @@ namespace Principal.wfrmOrders
             Order order = OrderBL.GetOrderById(orderID);
 
             OrderIDLabel.Text = order.OrderID.ToString();
-            CustomerIDLabel.Text = order.CustomerID.ToString();
-            EmployeeIDLabel.Text = order.EmployeeID.ToString();
+            CustomerIDLabel.Text = order.Customer.ContactName.ToString();
+            EmployeeIDLabel.Text = order.Employee.FirstName.ToString() + " " + order.Employee.LastName.ToString();
             OrderDateLabel.Text = order.OrderDate.ToString();
             RequiredDateLabel.Text = order.RequiredDate.ToString();
             ShippedDateLabel.Text = order.ShippedDate.ToString();
-            ShipViaLabel.Text = order.ShipVia.ToString();
+            ShipViaLabel.Text = order.Shipper.CompanyName.ToString();
             FreightLabel.Text = order.Freight.ToString();
             ShipNameLabel.Text = order.ShipName;
-            IdStateLabel.Text = order.IdState.ToString();
+            IdStateLabel.Text = order.State.Name.ToString();
         }
     }
 }
