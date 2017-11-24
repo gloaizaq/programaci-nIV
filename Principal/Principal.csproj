@@ -95,6 +95,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\css\factura.css" />
     <Content Include="assets\css\navbar.css" />
     <Content Include="assets\css\popup.css" />
     <Content Include="assets\css\ventas.css" />
