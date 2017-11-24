@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="NORTHWND" Class="DataContextDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-GJ1E6E8;Initial Catalog=NORTHWND;User ID=usrNorthWind" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="NORTHWNDConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="NORTHWND" Class="VentasCxtDataContext" Serialization="Unidirectional" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-GJ1E6E8;Initial Catalog=NORTHWND;Persist Security Info=True;User ID=usrNorthWind" SettingsObjectName="BEL.Properties.Settings" SettingsPropertyName="NORTHWNDConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.[Order Details]" Member="Order_Details">
     <Type Name="Order_Detail">
       <Column Name="OrderID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />

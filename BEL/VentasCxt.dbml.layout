@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="VentasCxt">
+  <DataContextMoniker Name="/VentasCxtDataContext" />
+  <nestedChildShapes>
+    <classShape Id="570d578d-a55f-4e95-adfc-288ce5434d99" absoluteBounds="6.25, 1.5, 2, 1.7708968098958333">
+      <DataClassMoniker Name="/VentasCxtDataContext/Order_Detail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ba62a972-dbc9-4d79-b818-45b4d823dc4b" absoluteBounds="6.265, 1.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c90063a7-8017-480f-b0ab-c62c74851cc2" absoluteBounds="3.5, 1, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/VentasCxtDataContext/Order" />
+      <nestedChildShapes>
+        <elementListCompartment Id="25a85d54-8a94-4466-963d-d5fbba405af4" absoluteBounds="3.515, 1.46, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2463908d-9010-4876-ae4d-74d391392b38" absoluteBounds="0.75, 1.625, 2, 1.3862939453124998">
+      <DataClassMoniker Name="/VentasCxtDataContext/State" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4ed67f5e-da0d-42f4-90b8-baf57889b9a4" absoluteBounds="0.765, 2.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 2.38544840494792); (6.25 : 2.38544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/VentasCxtDataContext/Order/Order_Order_Detail" />
+      <nodes>
+        <classShapeMoniker Id="c90063a7-8017-480f-b0ab-c62c74851cc2" />
+        <classShapeMoniker Id="570d578d-a55f-4e95-adfc-288ce5434d99" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 2.31814697265625); (3.5 : 2.31814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/VentasCxtDataContext/State/State_Order" />
+      <nodes>
+        <classShapeMoniker Id="2463908d-9010-4876-ae4d-74d391392b38" />
+        <classShapeMoniker Id="c90063a7-8017-480f-b0ab-c62c74851cc2" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

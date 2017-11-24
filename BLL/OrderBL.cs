@@ -16,14 +16,11 @@ namespace BLL
             return ordersDAL.GetOrders();
         }
 
-        public static int AddOrder(Order order)
+        public static void AddOrder(Order order)
         {
-            return OrderDA.AddOrder(order);
+            OrderDA.AddOrder(order);
         }
-        public static void AddOrderDetail(OrderDetail orderDetail)
-        {
-            OrderDA.AddOrderDetail(orderDetail);
-        }
+       
         public static Order GetOrderById(int orderId)
         {
             return OrderDA.GetOrderById(orderId);

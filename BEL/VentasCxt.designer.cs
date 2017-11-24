@@ -9,7 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DAL
+namespace BEL
 {
 	using System.Data.Linq;
 	using System.Data.Linq.Mapping;
@@ -18,12 +18,13 @@ namespace DAL
 	using System.Reflection;
 	using System.Linq;
 	using System.Linq.Expressions;
+	using System.Runtime.Serialization;
 	using System.ComponentModel;
 	using System;
 	
 	
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="NORTHWND")]
-	public partial class DataContextDataContext : System.Data.Linq.DataContext
+	public partial class VentasCxtDataContext : System.Data.Linq.DataContext
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
@@ -41,31 +42,31 @@ namespace DAL
     partial void DeleteState(State instance);
     #endregion
 		
-		public DataContextDataContext() : 
-				base(global::DAL.Properties.Settings.Default.NORTHWNDConnectionString, mappingSource)
+		public VentasCxtDataContext() : 
+				base(global::BEL.Properties.Settings.Default.NORTHWNDConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DataContextDataContext(string connection) : 
+		public VentasCxtDataContext(string connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DataContextDataContext(System.Data.IDbConnection connection) : 
+		public VentasCxtDataContext(System.Data.IDbConnection connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DataContextDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public VentasCxtDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DataContextDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public VentasCxtDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
@@ -97,7 +98,8 @@ namespace DAL
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[Order Details]")]
-	public partial class Order_Detail : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class Order_Detail : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -132,11 +134,11 @@ namespace DAL
 		
 		public Order_Detail()
 		{
-			this._Order = default(EntityRef<Order>);
-			OnCreated();
+			this.Initialize();
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
 		public int OrderID
 		{
 			get
@@ -161,6 +163,7 @@ namespace DAL
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
 		public int ProductID
 		{
 			get
@@ -181,6 +184,7 @@ namespace DAL
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnitPrice", DbType="Money NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
 		public decimal UnitPrice
 		{
 			get
@@ -201,6 +205,7 @@ namespace DAL
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="SmallInt NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
 		public short Quantity
 		{
 			get
@@ -221,6 +226,7 @@ namespace DAL
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Discount", DbType="Real NOT NULL")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
 		public float Discount
 		{
 			get
@@ -293,10 +299,24 @@ namespace DAL
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void Initialize()
+		{
+			this._Order = default(EntityRef<Order>);
+			OnCreated();
+		}
+		
+		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
+		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+		public void OnDeserializing(StreamingContext context)
+		{
+			this.Initialize();
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Orders")]
-	public partial class Order : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class Order : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -324,6 +344,8 @@ namespace DAL
 		private EntitySet<Order_Detail> _Order_Details;
 		
 		private EntityRef<State> _State;
+		
+		private bool serializing;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -353,12 +375,11 @@ namespace DAL
 		
 		public Order()
 		{
-			this._Order_Details = new EntitySet<Order_Detail>(new Action<Order_Detail>(this.attach_Order_Details), new Action<Order_Detail>(this.detach_Order_Details));
-			this._State = default(EntityRef<State>);
-			OnCreated();
+			this.Initialize();
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
 		public int OrderID
 		{
 			get
@@ -379,6 +400,7 @@ namespace DAL
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerID", DbType="NChar(5)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
 		public string CustomerID
 		{
 			get
@@ -399,6 +421,7 @@ namespace DAL
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
 		public System.Nullable<int> EmployeeID
 		{
 			get
@@ -419,6 +442,7 @@ namespace DAL
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderDate", DbType="DateTime")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4)]
 		public System.Nullable<System.DateTime> OrderDate
 		{
 			get
@@ -439,6 +463,7 @@ namespace DAL
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RequiredDate", DbType="DateTime")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=5)]
 		public System.Nullable<System.DateTime> RequiredDate
 		{
 			get
@@ -459,6 +484,7 @@ namespace DAL
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShippedDate", DbType="DateTime")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=6)]
 		public System.Nullable<System.DateTime> ShippedDate
 		{
 			get
@@ -479,6 +505,7 @@ namespace DAL
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShipVia", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=7)]
 		public System.Nullable<int> ShipVia
 		{
 			get
@@ -499,6 +526,7 @@ namespace DAL
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Freight", DbType="Money")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=8)]
 		public System.Nullable<decimal> Freight
 		{
 			get
@@ -519,6 +547,7 @@ namespace DAL
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShipName", DbType="NVarChar(40)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=9)]
 		public string ShipName
 		{
 			get
@@ -539,6 +568,7 @@ namespace DAL
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdState", DbType="Int")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=10)]
 		public System.Nullable<int> IdState
 		{
 			get
@@ -563,10 +593,16 @@ namespace DAL
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_Order_Detail", Storage="_Order_Details", ThisKey="OrderID", OtherKey="OrderID")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=11, EmitDefaultValue=false)]
 		public EntitySet<Order_Detail> Order_Details
 		{
 			get
 			{
+				if ((this.serializing 
+							&& (this._Order_Details.HasLoadedOrAssignedValues == false)))
+				{
+					return null;
+				}
 				return this._Order_Details;
 			}
 			set
@@ -640,10 +676,39 @@ namespace DAL
 			this.SendPropertyChanging();
 			entity.Order = null;
 		}
+		
+		private void Initialize()
+		{
+			this._Order_Details = new EntitySet<Order_Detail>(new Action<Order_Detail>(this.attach_Order_Details), new Action<Order_Detail>(this.detach_Order_Details));
+			this._State = default(EntityRef<State>);
+			OnCreated();
+		}
+		
+		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
+		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+		public void OnDeserializing(StreamingContext context)
+		{
+			this.Initialize();
+		}
+		
+		[global::System.Runtime.Serialization.OnSerializingAttribute()]
+		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+		public void OnSerializing(StreamingContext context)
+		{
+			this.serializing = true;
+		}
+		
+		[global::System.Runtime.Serialization.OnSerializedAttribute()]
+		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+		public void OnSerialized(StreamingContext context)
+		{
+			this.serializing = false;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.State")]
-	public partial class State : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Runtime.Serialization.DataContractAttribute()]
+    public partial class State : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -655,6 +720,8 @@ namespace DAL
 		private System.Nullable<bool> _Active;
 		
 		private EntitySet<Order> _Orders;
+		
+		private bool serializing;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -670,11 +737,11 @@ namespace DAL
 		
 		public State()
 		{
-			this._Orders = new EntitySet<Order>(new Action<Order>(this.attach_Orders), new Action<Order>(this.detach_Orders));
-			OnCreated();
+			this.Initialize();
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=1)]
 		public int Id
 		{
 			get
@@ -695,6 +762,7 @@ namespace DAL
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(20)")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=2)]
 		public string Name
 		{
 			get
@@ -715,6 +783,7 @@ namespace DAL
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Active", DbType="Bit")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=3)]
 		public System.Nullable<bool> Active
 		{
 			get
@@ -735,10 +804,16 @@ namespace DAL
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="State_Order", Storage="_Orders", ThisKey="Id", OtherKey="IdState")]
+		[global::System.Runtime.Serialization.DataMemberAttribute(Order=4, EmitDefaultValue=false)]
 		public EntitySet<Order> Orders
 		{
 			get
 			{
+				if ((this.serializing 
+							&& (this._Orders.HasLoadedOrAssignedValues == false)))
+				{
+					return null;
+				}
 				return this._Orders;
 			}
 			set
@@ -777,6 +852,33 @@ namespace DAL
 		{
 			this.SendPropertyChanging();
 			entity.State = null;
+		}
+		
+		private void Initialize()
+		{
+			this._Orders = new EntitySet<Order>(new Action<Order>(this.attach_Orders), new Action<Order>(this.detach_Orders));
+			OnCreated();
+		}
+		
+		[global::System.Runtime.Serialization.OnDeserializingAttribute()]
+		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+		public void OnDeserializing(StreamingContext context)
+		{
+			this.Initialize();
+		}
+		
+		[global::System.Runtime.Serialization.OnSerializingAttribute()]
+		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+		public void OnSerializing(StreamingContext context)
+		{
+			this.serializing = true;
+		}
+		
+		[global::System.Runtime.Serialization.OnSerializedAttribute()]
+		[global::System.ComponentModel.EditorBrowsableAttribute(EditorBrowsableState.Never)]
+		public void OnSerialized(StreamingContext context)
+		{
+			this.serializing = false;
 		}
 	}
 }

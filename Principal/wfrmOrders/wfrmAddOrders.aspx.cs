@@ -11,21 +11,22 @@ namespace Principal.wfrmOrders
 {
     public partial class wfrmAddOrders : System.Web.UI.Page
     {
-        public List<OrderDetail> orderDetails
+        //private List<Order_Detail> orderDetails = new List<Order_Detail>();
+        public List<Order_Detail> orderDetails
         {
             get
             {
-                if (this.ViewState["orderDetails"] == null)
+                if (HttpContext.Current.Session["orderDetails"] == null)
                 {
-                    this.ViewState["orderDetails"] = new List<OrderDetail>();
+                    HttpContext.Current.Session["orderDetails"] = new List<Order_Detail>();
                 }
-                return (List<OrderDetail>)(this.ViewState["orderDetails"]);
+                return (List<Order_Detail>)(HttpContext.Current.Session["orderDetails"]);
             }
             set
             {
-                if (this.ViewState["orderDetails"] != null)
+                if (HttpContext.Current.Session["orderDetails"] != null)
                 {
-                    this.ViewState["orderDetails"] = value;
+                    HttpContext.Current.Session["orderDetails"] = value;
                 }
             }
         }
@@ -47,7 +48,7 @@ namespace Principal.wfrmOrders
             dropDown.DataValueField = value;
             dropDown.DataBind();
         }
-        private int AddOrder()
+        private void AddOrder()
         {
             Order order = new Order();
             order.CustomerID = "PERIC";//customerDropDownList.SelectedValue;
@@ -56,26 +57,20 @@ namespace Principal.wfrmOrders
             order.RequiredDate = DateTime.ParseExact(requiredDateTextBox.Text.Trim(), "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
             order.ShippedDate = DateTime.ParseExact(shippedDateTextBox.Text.Trim(), "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
             order.ShipVia = 1;//Convert.ToInt32(shipViaDropDownList.SelectedValue);
-            order.Freight = Convert.ToDouble(freightTextBox.Text.Trim());
+            order.Freight = Convert.ToDecimal(freightTextBox.Text.Trim());
             order.ShipName = shipNameTextBox.Text.Trim();
             order.IdState = Convert.ToInt32(stateDropDownList.SelectedValue);
-            
-            return OrderBL.AddOrder(order);
+
+            order.Order_Details.AddRange(orderDetails);
+
+            OrderBL.AddOrder(order);
         }
-        private void AddOrderDetail(int orderID)
-        {
-            foreach(var detail in orderDetails)
-            {
-                detail.OrderID = orderID;
-                OrderBL.AddOrderDetail(detail);
-            }
-        }
+        
         protected void btnAddOrden_Click(object sender, EventArgs e)
         {
             try
             {
-                int orderID = AddOrder();
-                AddOrderDetail(orderID);
+                AddOrder();
 
                 Response.Redirect(resources.AspPages.OrderList);
             }
@@ -89,7 +84,7 @@ namespace Principal.wfrmOrders
         {
             try
             {
-                OrderDetail orderDetail = new OrderDetail();
+                Order_Detail orderDetail = new Order_Detail();
                 orderDetail.ProductID = 1;//Convert.ToInt32(productDropDownList.SelectedValue);
                 orderDetail.UnitPrice = 1000;// Convert.ToDouble(unitPriceTextBox.Text.Trim());
                 orderDetail.Quantity = Convert.ToInt16(quantityTextBox.Text.Trim());
@@ -114,10 +109,13 @@ namespace Principal.wfrmOrders
 
         private void BindListView()
         {
-            orderDetails.Reverse();
-            DetallesOrden.DataSource = orderDetails;
-            DetallesOrden.DataBind();
-            orderDetails.Reverse();
+            if (orderDetails.Any())
+            {
+                orderDetails.Reverse();
+                DetallesOrden.DataSource = orderDetails;
+                DetallesOrden.DataBind();
+                orderDetails.Reverse();
+            }
         }
     }
 }

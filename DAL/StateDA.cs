@@ -11,24 +11,12 @@ namespace DAL
     {
         public List<State> GetActiveStates()
         {
-            Connection conexion = new Connection();
-            try
+            using (VentasCxtDataContext ctx = new VentasCxtDataContext())
             {
-                var reader = conexion.ExecStoredProc("sp_GetActiveStates");
-                List<State> states = new List<State>();
-                while (reader.Read())
-                {
-                    State state = new State();
-                    state.Id = Convert.ToInt32(reader["Id"]);
-                    state.Name = reader["Name"].ToString();
+                var states = from state in ctx.States
+                             select state;
 
-                    states.Add(state);
-                }
-                return states;
-            }
-            finally
-            {
-                conexion.CerrarConexionBD();
+                return states.ToList();
             }
         }
     }

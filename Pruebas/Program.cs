@@ -11,8 +11,7 @@ namespace Pruebas
     {
         static void Main(string[] args)
         {
-            OrderBL test = new OrderBL();
-            var x = test.GetOrders();
+            var x = OrderBL.GetOrders();
         }
     }
 }
