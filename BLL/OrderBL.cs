@@ -12,8 +12,7 @@ namespace BLL
     {
         public static List<Order> GetOrders()
         {
-            OrderDA ordersDAL = new OrderDA();
-            return ordersDAL.GetOrders();
+            return OrderDA.GetOrders();
         }
 
         public static void AddOrder(Order order)
@@ -24,6 +23,15 @@ namespace BLL
         public static Order GetOrderById(int orderId)
         {
             return OrderDA.GetOrderById(orderId);
+        }
+        public static decimal GetTotalOrderPrice(int orderID)
+        {
+            return OrderDA.GetTotalOrderPrice(orderID);
+        }
+
+        public static decimal GetDiscountAmount(int orderID)
+        {
+            return OrderDA.GetDiscountAmount(orderID);
         }
     }
 }

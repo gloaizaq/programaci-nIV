@@ -9,9 +9,9 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
-    public class OrderDA
+    public static class OrderDA
     {
-        public List<Order> GetOrders()
+        public static List<Order> GetOrders()
         {
             VentasCxtDataContext ctx = new VentasCxtDataContext();
             
@@ -20,6 +20,37 @@ namespace DAL
 
             return orders.ToList();
             
+        }
+        public static decimal GetTotalOrderPrice(int orderID)
+        {
+            using (VentasCxtDataContext ctx = new VentasCxtDataContext()) {
+                var orderDetails = (from orderDetail in ctx.Order_Details
+                             where orderDetail.OrderID == orderID
+                             select orderDetail);
+                decimal total = 0;
+                foreach (var orderDetail in orderDetails.ToList())
+                {
+                    total += orderDetail.UnitPrice * orderDetail.Quantity;
+                }
+                
+                return total;
+            }
+        }
+        public static decimal GetDiscountAmount(int orderID)
+        {
+            using (VentasCxtDataContext ctx = new VentasCxtDataContext())
+            {
+                var orderDetails = (from orderDetail in ctx.Order_Details
+                                    where orderDetail.OrderID == orderID
+                                    select orderDetail);
+                decimal descuento = 0;
+                foreach (var orderDetail in orderDetails.ToList())
+                {
+                    descuento += (decimal)orderDetail.Discount * (orderDetail.UnitPrice * orderDetail.Quantity);
+                }
+
+                return descuento;
+            }
         }
         public static Order GetOrderById(int orderId)
         {

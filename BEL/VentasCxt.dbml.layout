@@ -60,7 +60,7 @@
         <elementListCompartment Id="00eba27a-d2e3-4f4a-a301-9d6e11e6f204" absoluteBounds="7.89, 4.71, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(7.875 : 4.34375); (6.08333333333333 : 4.34375 : JumpStart); (5.91666666666667 : 4.34375 : JumpEnd); (4.96875 : 4.34375); (4.96875 : 3.73240397135417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(7.875 : 4.34375); (7.45833333333333 : 4.34375 : JumpStart); (7.29166666666667 : 4.34375 : JumpEnd); (6.64583333333333 : 4.34375 : JumpStart); (6.47916666666667 : 4.34375 : JumpEnd); (4.625 : 4.34375); (4.625 : 3.73240397135417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/VentasCxtDataContext/Customer/Customer_Order" />
       <nodes>
         <classShapeMoniker Id="b2b92cc3-4a18-47cf-860b-d491e2840c75" />
@@ -86,11 +86,24 @@
         <elementListCompartment Id="b68c040f-0b64-43e2-a2d1-5480f0dac858" absoluteBounds="6.39, 6.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(6.375 : 6.125); (6 : 5.75); (6 : 3.85740397135417); (5.62653946153846 : 3.85740397135417); (5.5 : 3.73086450981571)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(7.375 : 6.125); (7.375 : 3.52089680989583); (6.64583333333333 : 3.52089680989583 : JumpStart); (6.47916666666667 : 3.52089680989583 : JumpEnd); (6 : 3.52089680989583); (6 : 2.36620198567708); (5.5 : 2.36620198567708)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/VentasCxtDataContext/State1/State1_Order" />
       <nodes>
         <classShapeMoniker Id="1aee119e-5399-4fd5-ac3b-39c2f5125212" />
         <classShapeMoniker Id="c90063a7-8017-480f-b0ab-c62c74851cc2" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="1b85a6b8-c763-4fa1-b5a6-eabc64fdb9bf" absoluteBounds="4.875, 4.75, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/VentasCxtDataContext/Product" />
+      <nestedChildShapes>
+        <elementListCompartment Id="93bd6c52-14d2-4fcf-a947-30d96b505299" absoluteBounds="4.89, 5.21, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.5625 : 4.75); (6.5625 : 3.27089680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/VentasCxtDataContext/Product/Product_Order_Detail" />
+      <nodes>
+        <classShapeMoniker Id="1b85a6b8-c763-4fa1-b5a6-eabc64fdb9bf" />
+        <classShapeMoniker Id="570d578d-a55f-4e95-adfc-288ce5434d99" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

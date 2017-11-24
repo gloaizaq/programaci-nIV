@@ -24,7 +24,10 @@
 					<th><span>Estado</span></th>
 					<td><asp:Label ID="IdStateLabel" runat="server"></asp:Label></td>
                     <th><span>Flete</span></th>
-					<td><asp:Label ID="FreightLabel" runat="server"></asp:Label></td>
+					<td>
+                        <span class="signo-colon">₡</span>
+                        <asp:Label ID="FreightLabel" runat="server"></asp:Label>
+					</td>
 				</tr>
 				<tr>
 					<th><span>Fecha</span></th>
@@ -48,83 +51,86 @@
 					
 				</tr>
 			</table>
-			<table class="inventory">
-				<thead>
-					<tr>
-						<th><span>Producto</span></th>
-						<th><span>Descripción</span></th>
-						<th><span>Cantidad</span></th>
-						<th><span>Precio</span></th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><span>Mi producto</span></td>
-						<td><span>Este es mi producto</span></td>
-						<td><span>4</span></td>
-						<td><span data-prefix>₡</span><span>600.00</span></td>
-					</tr>
-					<tr>
-						<td><span>Mi producto</span></td>
-						<td><span>Este es mi producto</span></td>
-						<td><span>4</span></td>
-						<td><span data-prefix>₡</span><span>600.00</span></td>
-					</tr>
-					<tr>
-						<td><span>Mi producto</span></td>
-						<td><span>Este es mi producto</span></td>
-						<td><span>4</span></td>
-						<td><span data-prefix>₡</span><span>600.00</span></td>
-					</tr>
-					<tr>
-						<td><span>Mi producto</span></td>
-						<td><span>Este es mi producto</span></td>
-						<td><span>4</span></td>
-						<td><span data-prefix>₡</span><span>600.00</span></td>
-					</tr>
-					<tr>
-						<td><span>Mi producto</span></td>
-						<td><span>Este es mi producto</span></td>
-						<td><span>4</span></td>
-						<td><span data-prefix>₡</span><span>600.00</span></td>
-					</tr>
-					<tr>
-						<td><span>Mi producto</span></td>
-						<td><span>Este es mi producto</span></td>
-						<td><span>4</span></td>
-						<td><span data-prefix>₡</span><span>600.00</span></td>
-					</tr>
-					<tr>
-						<td><span>Mi producto</span></td>
-						<td><span>Este es mi producto</span></td>
-						<td><span>4</span></td>
-						<td><span data-prefix>₡</span><span>600.00</span></td>
-					</tr>
-					<tr>
-						<td><span>Mi producto</span></td>
-						<td><span>Este es mi producto</span></td>
-						<td><span>4</span></td>
-						<td><span data-prefix>₡</span><span>600.00</span></td>
-					</tr>
-				</tbody>
-			</table>
+            <asp:ListView ID="lvOrderDetails" ItemPlaceholderID="itemPlaceholder" runat="server">
+            <LayoutTemplate>
+                <table class="inventory">
+                    <thead>
+                        <tr>
+                            <th><span>Producto</span></th>
+                            <th><span>Precio</span></th>
+                            <th><span>Cantidad</span></th>
+                            <th><span>Descuento</span></th>
+                        </tr>
+                    </thead>
+                    <asp:PlaceHolder ID="itemPlaceholder" runat="server"></asp:PlaceHolder>
+                    
+                    <tr>
+                        <td class="contenedor-numeros" colspan="4">
+                            <asp:DataPager ID="PaginadorDatos" runat="server" PageSize="10" PagedControlID="lvOrderDetails">
+                                <Fields>
+                                    <asp:NumericPagerField
+                                      NextPreviousButtonCssClass="numeros"
+                                      CurrentPageLabelCssClass="numero-actual"
+                                      NumericButtonCssClass="numeros"
+                                      ButtonType="Link" 
+                                      RenderNonBreakingSpacesBetweenControls="true"
+                                      ButtonCount="10"
+                                      PreviousPageText="Anterior"
+                                      NextPageText="Siguiente" />
+                                  </Fields>
+                            </asp:DataPager>
+                        </td>
+                    </tr>
+                </table>
+              </LayoutTemplate>
+            <ItemTemplate>
+                <tr runat="server">
+                  <td runat="server">
+                    <asp:Label ID="ProductLabel" runat="server" 
+                    Text='<%#Eval("Product.ProductName")%>' />
+                  </td>
+                   <td runat="server">
+                       <span class="signo-colon">₡</span>
+                    <asp:Label ID="UnitPriceLabel" runat="server" 
+                      Text='<%#Eval("UnitPrice")%>' />
+                  </td>
+                  <td runat="server">
+                    <asp:Label ID="QuantityLabel" runat="server" 
+                      Text='<%#Eval("Quantity")%>' />
+                  </td>
+                  <td runat="server">
+                    <asp:Label ID="DiscountLabel" runat="server" 
+                      Text='<%#Eval("Discount")%>' />
+                  </td>
+                </tr>
+              </ItemTemplate>
+        </asp:ListView>
 			<table class="balance">
 				<tr>
-					<th><span>Total</span></th>
-					<td><span data-prefix>₡</span><span>400.00</span></td>
+					<th><span>Subtotal</span></th>
+					<td><span class="signo-colon">₡</span>
+                        <span>
+                            <asp:Label ID="TotalLabel" runat="server"></asp:Label>
+                        </span>
+					</td>
 				</tr>
 				<tr>
 					<th><span>Descuento</span></th>
-					<td><span data-prefix>₡</span><span>200.00</span></td>
+					<td><span class="signo-colon">₡</span>
+                        <span>
+                            <asp:Label ID="MontoDescuentoLabel" runat="server"></asp:Label>
+                        </span>
+					</td>
+				</tr>
+                <tr>
+					<th><span>Total</span></th>
+					<td><span class="signo-colon">₡</span>
+                        <span>
+                            <asp:Label ID="RealTotalLabel" runat="server"></asp:Label>
+                        </span>
+					</td>
 				</tr>
 			</table>
 		</article>
-		<!-- <aside>
-			<h1><span>Comentarios</span></h1>
-			<div>
-				<p>Cualquier cosa que quiera poner aquí, sobre la empresa o sobre el pago de la orden</p>
-			</div>
-		</aside> -->
-
     </div>
 </asp:Content>
