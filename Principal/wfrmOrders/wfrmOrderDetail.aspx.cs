@@ -24,12 +24,17 @@ namespace Principal.wfrmOrders
             int orderID = Convert.ToInt32(Session["orderID"].ToString());
             Order order = OrderBL.GetOrderById(orderID);
 
+            CompradorLabel.Text = order.Customer.ContactName;
+            CompanniaLabel.Text = order.Customer.CompanyName;
+            DireccionLabel.Text = order.Customer.Address;
+            TelefonoLabel.Text = order.Customer.Phone;
+
             OrderIDLabel.Text = order.OrderID.ToString();
             CustomerIDLabel.Text = order.Customer.ContactName.ToString();
             EmployeeIDLabel.Text = order.Employee.FirstName.ToString() + " " + order.Employee.LastName.ToString();
-            OrderDateLabel.Text = order.OrderDate.ToString();
-            RequiredDateLabel.Text = order.RequiredDate.ToString();
-            ShippedDateLabel.Text = order.ShippedDate.ToString();
+            OrderDateLabel.Text = order.OrderDate.HasValue ? order.OrderDate.Value.ToString("dd-MM-yyyy") : "Sin fecha";
+            RequiredDateLabel.Text = order.RequiredDate.HasValue ? order.RequiredDate.Value.ToString("dd-MM-yyyy") : "Sin fecha";
+            ShippedDateLabel.Text = order.ShippedDate.HasValue ? order.ShippedDate.Value.ToString("dd-MM-yyyy") : "Sin fecha";
             ShipViaLabel.Text = order.Shipper.CompanyName.ToString();
             FreightLabel.Text = order.Freight.ToString();
             ShipNameLabel.Text = order.ShipName;

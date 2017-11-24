@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #7D869C;
 }
 
 li {
@@ -19,7 +19,7 @@ li a, .dropbtn {
 }
 
 li a:hover, .dropdown:hover .dropbtn {
-    background-color: blue;
+    background-color: #96ADC8;
 }
 
 li.dropdown {

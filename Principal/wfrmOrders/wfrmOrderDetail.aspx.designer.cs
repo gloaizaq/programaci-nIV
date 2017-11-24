@@ -13,6 +13,42 @@ namespace Principal.wfrmOrders {
     public partial class wfrmOrderDetail {
         
         /// <summary>
+        /// CompradorLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label CompradorLabel;
+        
+        /// <summary>
+        /// CompanniaLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label CompanniaLabel;
+        
+        /// <summary>
+        /// DireccionLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label DireccionLabel;
+        
+        /// <summary>
+        /// TelefonoLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label TelefonoLabel;
+        
+        /// <summary>
         /// OrderIDLabel control.
         /// </summary>
         /// <remarks>
@@ -22,22 +58,22 @@ namespace Principal.wfrmOrders {
         protected global::System.Web.UI.WebControls.Label OrderIDLabel;
         
         /// <summary>
-        /// CustomerIDLabel control.
+        /// IdStateLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CustomerIDLabel;
+        protected global::System.Web.UI.WebControls.Label IdStateLabel;
         
         /// <summary>
-        /// EmployeeIDLabel control.
+        /// FreightLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label EmployeeIDLabel;
+        protected global::System.Web.UI.WebControls.Label FreightLabel;
         
         /// <summary>
         /// OrderDateLabel control.
@@ -76,15 +112,6 @@ namespace Principal.wfrmOrders {
         protected global::System.Web.UI.WebControls.Label ShipViaLabel;
         
         /// <summary>
-        /// FreightLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label FreightLabel;
-        
-        /// <summary>
         /// ShipNameLabel control.
         /// </summary>
         /// <remarks>
@@ -94,12 +121,21 @@ namespace Principal.wfrmOrders {
         protected global::System.Web.UI.WebControls.Label ShipNameLabel;
         
         /// <summary>
-        /// IdStateLabel control.
+        /// CustomerIDLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label IdStateLabel;
+        protected global::System.Web.UI.WebControls.Label CustomerIDLabel;
+        
+        /// <summary>
+        /// EmployeeIDLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label EmployeeIDLabel;
     }
 }

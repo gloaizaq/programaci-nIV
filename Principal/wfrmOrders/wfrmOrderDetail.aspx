@@ -3,57 +3,49 @@
     <link href="../assets/css/factura.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="BodyContent" runat="server">
-    <div class="contenedor">
-        <asp:Label ID="OrderIDLabel" runat="server" Text=""></asp:Label>
-        <asp:Label ID="CustomerIDLabel" runat="server" Text=""></asp:Label>
-        <asp:Label ID="EmployeeIDLabel" runat="server" Text=""></asp:Label>
-        <asp:Label ID="OrderDateLabel" runat="server" Text=""></asp:Label>
-        <asp:Label ID="RequiredDateLabel" runat="server" Text=""></asp:Label>
-        <asp:Label ID="ShippedDateLabel" runat="server" Text=""></asp:Label>
-        <asp:Label ID="ShipViaLabel" runat="server" Text=""></asp:Label>
-        <asp:Label ID="FreightLabel" runat="server" Text=""></asp:Label>
-        <asp:Label ID="ShipNameLabel" runat="server" Text=""></asp:Label>
-        <asp:Label ID="IdStateLabel" runat="server" Text=""></asp:Label>
-
+    <div class="contenedor">      
         <header>
-			<h1>Orden</h1>
-			<address >
-				<p>Gustavo Loaiza</p>
-				<p>Cartago, Concepción, Tres Ríos</p>
-				<p>(506) 8743-7613</p>
+			<h1>Detalle de orden</h1>
+			<address>
+				<p><asp:Label ID="CompradorLabel" runat="server"></asp:Label></p>
+                <p><asp:Label ID="CompanniaLabel" runat="server"></asp:Label></p>
+                <p><asp:Label ID="DireccionLabel" runat="server"></asp:Label></p>
+                <p><asp:Label ID="TelefonoLabel" runat="server"></asp:Label></p>
 			</address>
-			<span><img alt="Logo UAM" src="logo.png"></span>
+			<%--<span><img alt="Logo UAM" src="logo.png"></span>--%>
 		</header>
 		<article>
 			<h1>Factura</h1>
-			<!-- <address >
-				<p>UAM CR<br>2017</p>
-			</address> -->
 
 			<table class="detail">
 				<tr>
 					<th><span>Orden #</span></th>
-					<td><span>11000</span></td>
-					<th><span>Orden #</span></th>
-					<td><span>11000</span></td>
-					<th><span>Orden #</span></th>
-					<td><span>11000</span></td>
+					<td><span><asp:Label ID="OrderIDLabel" runat="server"></asp:Label></span></td>
+					<th><span>Estado</span></th>
+					<td><asp:Label ID="IdStateLabel" runat="server"></asp:Label></td>
+                    <th><span>Flete</span></th>
+					<td><asp:Label ID="FreightLabel" runat="server"></asp:Label></td>
 				</tr>
 				<tr>
 					<th><span>Fecha</span></th>
-					<td><span>2 Nov, 2017</span></td>
-					<th><span>Fecha</span></th>
-					<td><span>2 Nov, 2017</span></td>
-					<th><span>Fecha</span></th>
-					<td><span>2 Nov, 2017</span></td>
+					<td><span><asp:Label ID="OrderDateLabel" runat="server"></asp:Label></span></td>
+					<th><span>Fecha Requerida</span></th>
+					<td><span><asp:Label ID="RequiredDateLabel" runat="server"></asp:Label></span></td>
+					<th><span>Fecha Envío</span></th>
+					<td><span><asp:Label ID="ShippedDateLabel" runat="server"></asp:Label></span></td>
 				</tr>
 				<tr>
-					<th><span>Total</span></th>
-					<td><span id="prefix" >$</span><span>13499.00</span></td>
-					<th><span>Total</span></th>
-					<td><span id="prefix" >$</span><span>13499.00</span></td>
-					<th><span>Total</span></th>
-					<td><span id="prefix" >$</span><span>13499.00</span></td>
+					<th><span>Transportista</span></th>
+					<td colspan="2"><asp:Label ID="ShipViaLabel" runat="server"></asp:Label></td>
+					<th><span>Nombre envío</span></th>
+					<td colspan="2"><asp:Label ID="ShipNameLabel" runat="server"></asp:Label></td>
+				</tr>
+                <tr>
+                    <th><span>Cliente</span></th>
+					<td colspan="2"><span><asp:Label ID="CustomerIDLabel" runat="server"></asp:Label></span></td>
+					<th><span>Empleado</span></th>
+					<td colspan="2"><span><asp:Label ID="EmployeeIDLabel" runat="server"></asp:Label></span></td>
+					
 				</tr>
 			</table>
 			<table class="inventory">
