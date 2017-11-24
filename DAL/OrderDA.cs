@@ -13,13 +13,13 @@ namespace DAL
     {
         public List<Order> GetOrders()
         {
-            using (VentasCxtDataContext ctx = new VentasCxtDataContext())
-            {
-                var orders = (from order in ctx.Orders
-                              select order).OrderByDescending(o => o.OrderID);
+            VentasCxtDataContext ctx = new VentasCxtDataContext();
+            
+            var orders = (from order in ctx.Orders
+                            select order).OrderByDescending(o => o.OrderID);
 
-                return orders.ToList();
-            }
+            return orders.ToList();
+            
         }
         public static Order GetOrderById(int orderId)
         {

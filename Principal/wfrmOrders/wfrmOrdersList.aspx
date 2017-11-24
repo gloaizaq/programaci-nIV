@@ -50,11 +50,11 @@
                   </td>
                     <td runat="server">
                     <asp:Label ID="Label1" runat="server" 
-                      Text='<%#Eval("CustomerID") %>' />
+                      Text='<%#Eval("Customer.ContactName")%>' />
                   </td>
                     <td runat="server">
                     <asp:Label ID="Label2" runat="server" 
-                      Text='<%#Eval("EmployeeID") %>' />
+                      Text='<%#Eval("Employee.FirstName")+" "+Eval("Employee.LastName")%>' />
                   </td>
                     <td runat="server">
                     <asp:Label ID="Label3" runat="server" 
@@ -70,7 +70,7 @@
                   </td>
                   <td runat="server">
                     <asp:Label ID="Label6" runat="server" 
-                      Text='<%#Eval("ShipVia") %>' />
+                      Text='<%#Eval("Shipper.CompanyName") %>' />
                   </td>
                   <td runat="server">
                     <asp:Label ID="Label7" runat="server" 
@@ -82,7 +82,7 @@
                   </td>
                   <td runat="server">
                     <asp:Label ID="Label9" runat="server" 
-                      Text='<%#Eval("IdState") %>' />
+                      Text='<%#Eval("State.Name") %>' />
                   </td>
                   <td runat="server">
                     <a class="icono" ID="detail" runat="server" OnServerClick="OrderDetail_ServerClick">
