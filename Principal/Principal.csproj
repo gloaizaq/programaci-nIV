@@ -76,6 +76,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -94,11 +95,22 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\css\factura.css" />
+    <Content Include="assets\css\navbar.css" />
+    <Content Include="assets\css\popup.css" />
+    <Content Include="assets\css\ventas.css" />
+    <Content Include="assets\js\main.js" />
+    <Content Include="assets\js\popup.js" />
     <Content Include="index.html" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="WebForm1.aspx" />
+    <Content Include="wfrmOrders\wfrmAddOrders.aspx" />
+    <Content Include="wfrmOrders\wfrmOrderDetail.aspx" />
+    <Content Include="wfrmOrders\wfrmOrdersList.aspx" />
+    <Content Include="Dummy.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -112,6 +124,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dummy.Master.cs">
+      <DependentUpon>Dummy.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dummy.Master.designer.cs">
+      <DependentUpon>Dummy.Master</DependentUpon>
+    </Compile>
     <Compile Include="index.html.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -119,6 +138,55 @@
       <DependentUpon>index.html.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="resources\AspPages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AspPages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfrmOrders\wfrmAddOrders.aspx.cs">
+      <DependentUpon>wfrmAddOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfrmOrders\wfrmAddOrders.aspx.designer.cs">
+      <DependentUpon>wfrmAddOrders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfrmOrders\wfrmOrderDetail.aspx.cs">
+      <DependentUpon>wfrmOrderDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfrmOrders\wfrmOrderDetail.aspx.designer.cs">
+      <DependentUpon>wfrmOrderDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfrmOrders\wfrmOrdersList.aspx.cs">
+      <DependentUpon>wfrmOrdersList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfrmOrders\wfrmOrdersList.aspx.designer.cs">
+      <DependentUpon>wfrmOrdersList.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BEL\BEL.csproj">
+      <Project>{dff0fb52-bf35-4eeb-8608-4c94fd0a87b8}</Project>
+      <Name>BEL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{1557f2e6-d447-4dac-bab1-152640fc6be0}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="resources\AspPages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AspPages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

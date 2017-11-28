@@ -1,0 +1,133 @@
+﻿/***************** Cuerpo *****************/
+body {
+   font-family: 'Roboto', sans-serif;
+   /*font-family: 'Montserrat', sans-serif;*/
+}
+/***************** Estilo para paginación *****************/
+.contenedor-numeros {
+  text-align: center;
+}
+.numeros {
+  position: relative;
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  line-height: 1.428571429;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px; 
+  background-color: #96ADC8;
+  color: white;
+  outline: 0;
+  text-decoration: none;
+  transition: all .1s linear;
+}
+.numero-actual {
+  position: relative;
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  line-height: 1.428571429;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px; 
+  background-color: #586994;
+  color: white;
+  outline: 0;
+  text-decoration: none;
+  transition: all .1s linear;
+}
+
+.numeros:hover {
+    background-color: #C1C1C1;
+}
+
+/***************** Tablas *****************/
+.tabla-lista {
+    cursor:default;
+  border-collapse: collapse;
+  width: 100%;
+}
+th, td {
+  padding: 0.25rem;
+  text-align: left;
+  border: 1px solid black;
+}
+tbody tr:nth-child(odd) {
+  background: #D8E1EB;
+}
+
+tbody tr:hover {
+    background: #A9BBD2;
+}
+
+/***************** botones *****************/
+.btn {
+  box-sizing: border-box;
+  background-color: transparent;
+  border: 2px solid #96ADC8;
+  border-radius: 0.6em;
+  color: #96ADC8;
+  cursor: pointer;
+  display: flex;
+  align-self: center;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  margin: 20px;
+  padding: 1.2em 2.8em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+.btn:hover,
+  .btn:focus {
+    color: #586994;
+    border-color: #586994;
+    outline: 0;
+}
+/***************** Form *****************/
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/***************** Div contenedor *****************/
+.contenedor {
+    width: 50%;
+    margin: 0 auto;
+}
+.row
+{
+    display: table;
+    width:auto;
+}
+.col
+{
+    display: table-cell;
+    
+}
+/***************** HyperLink *****************/
+.icono {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+/***************** Region *****************/
+/***************** Region *****************/
+/***************** Region *****************/
