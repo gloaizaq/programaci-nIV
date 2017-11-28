@@ -7,11 +7,22 @@ using System.Web.UI.WebControls;
 using BEL;
 using BLL;
 
-namespace Principal.wfrmOrders
+namespace Principal.UserControls
 {
-    public partial class wfrmAddOrders : System.Web.UI.Page
+    public partial class ucOrder : System.Web.UI.UserControl
     {
-        //private List<Order_Detail> orderDetails = new List<Order_Detail>();
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                CargarDropDownList(stateDropDownList, StateBL.GetActiveStates(), "Name", "Id");
+            }
+        }
+
+        public void ChangeBtnText(string text)
+        {
+            //btnAddOrden.Text = text;
+        }
         public List<Order_Detail> orderDetails
         {
             get
@@ -30,13 +41,7 @@ namespace Principal.wfrmOrders
                 }
             }
         }
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            if (!IsPostBack)
-            {
-                CargarDropDownList(stateDropDownList, StateBL.GetActiveStates(), "Name", "Id");
-            }
-        }
+        
         protected void Page_PreRender(object sender, EventArgs e)
         {
             BindListView();
@@ -65,13 +70,12 @@ namespace Principal.wfrmOrders
 
             OrderBL.AddOrder(order);
         }
-        
-        protected void btnAddOrden_Click(object sender, EventArgs e)
+
+        public virtual void btnAddOrden_Click(object sender, EventArgs e)
         {
             try
             {
                 AddOrder();
-
                 Response.Redirect(resources.AspPages.OrderList);
             }
             catch (Exception)
@@ -118,8 +122,8 @@ namespace Principal.wfrmOrders
         protected void BorrarDetalle_Click(object sender, EventArgs e)
         {
             LinkButton btn = (LinkButton)(sender);
-            int productID = Convert.ToInt32(btn.CommandArgument);
-            orderDetails.RemoveAll(detail => detail.ProductID == productID);
+            int ProductID = Convert.ToInt32(btn.CommandArgument);
+            orderDetails.RemoveAll(det => det.ProductID == ProductID);
             BindListView();
         }
     }

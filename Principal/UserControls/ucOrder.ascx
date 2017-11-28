@@ -1,12 +1,6 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Dummy.Master" AutoEventWireup="true" CodeBehind="wfrmAddOrders.aspx.cs" Inherits="Principal.wfrmOrders.wfrmAddOrders" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ucOrder.ascx.cs" Inherits="Principal.UserControls.ucOrder" %>
 
-<asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
-    <script src="../assets/js/popup.js"></script>
-    <link href="../assets/css/popup.css" rel="stylesheet" />
-</asp:Content>
-<asp:Content ID="BodyContent" ContentPlaceHolderID="BodyContent" runat="server">
-
-    <div class="contenedor">
+<div class="contenedor">
         <h1>Nueva orden</h1>
         <div class="row">
             <div class="col">
@@ -146,13 +140,12 @@
                         Text='<%#Eval("Discount") %>' />
                     </td>
                     <td runat="server">
-                    <asp:LinkButton CssClass="icono" ID="BorrarDetalle" runat="server" OnClick="BorrarDetalle_Click" CommandArgument='<%#Eval("ProductID")%>'>
+                    <asp:LinkButton CssClass="icono" ID="BorrarDetalle" runat="server" OnClick="BorrarDetalle_Click" CommandArgument='<%#Eval("ProductID") %>'>
                         <i class="fa fa-trash" aria-hidden="true"></i>
                     </asp:LinkButton>
                   </td>
                 </tr>
             </ItemTemplate>
         </asp:ListView>
-        <asp:Button ID="btnAddOrden" OnClick="btnAddOrden_Click" CssClass="btn" runat="server" Text="Crear Orden" />
+        <asp:Button ID="btnAddOrden" OnClick="btnAddOrden_Click" CssClass="btn" runat="server" Text="Acción" />
     </div>      
-</asp:Content>
