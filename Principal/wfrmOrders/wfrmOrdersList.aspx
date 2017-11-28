@@ -89,7 +89,7 @@
                         <i class="fa fa-eye" aria-hidden="true"></i>
                     </a>
                   </td>
-                    <td runat="server">
+                  <td runat="server">
                     <a class="icono" ID="delete" runat="server" OnServerClick="OrderDetail_ServerClick">
                         <i class="fa fa-trash" aria-hidden="true"></i>
                     </a>

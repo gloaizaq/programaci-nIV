@@ -105,6 +105,7 @@
                     <th runat="server">Precio por unidad</th>
                     <th runat="server">Cantidad</th>
                     <th runat="server">Descuento</th>
+                    <th runat="server">Borrar</th>
                 </tr>
                 <tr runat="server" id="Contenido" ></tr>
                     <tr>
@@ -144,6 +145,11 @@
                     <asp:Label ID="Label3" runat="server" 
                         Text='<%#Eval("Discount") %>' />
                     </td>
+                    <td runat="server">
+                    <asp:LinkButton CssClass="icono" ID="BorrarDetalle" runat="server" OnClick="BorrarDetalle_Click" CommandArgument='<%#Eval("ProductID")%>'>
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </asp:LinkButton>
+                  </td>
                 </tr>
             </ItemTemplate>
         </asp:ListView>

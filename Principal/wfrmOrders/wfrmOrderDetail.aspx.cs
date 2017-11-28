@@ -11,22 +11,22 @@ namespace Principal.wfrmOrders
 {
     public partial class wfrmOrderDetail : System.Web.UI.Page
     {
-        //private List<Order_Detail> source;
-        public List<Order_Detail> source
+        //private List<Order_Detail> orderDetails;
+        public List<Order_Detail> orderDetails
         {
             get
             {
-                if (HttpContext.Current.Session["source"] == null)
+                if (HttpContext.Current.Session["orderDetails"] == null)
                 {
-                    HttpContext.Current.Session["source"] = new List<Order_Detail>();
+                    HttpContext.Current.Session["orderDetails"] = new List<Order_Detail>();
                 }
-                return (List<Order_Detail>)(HttpContext.Current.Session["source"]);
+                return (List<Order_Detail>)(HttpContext.Current.Session["orderDetails"]);
             }
             set
             {
-                if (HttpContext.Current.Session["source"] != null)
+                if (HttpContext.Current.Session["orderDetails"] != null)
                 {
-                    HttpContext.Current.Session["source"] = value;
+                    HttpContext.Current.Session["orderDetails"] = value;
                 }
             }
         }
@@ -47,7 +47,7 @@ namespace Principal.wfrmOrders
         }
         private void BindListView()
         {
-            lvOrderDetails.DataSource = source;
+            lvOrderDetails.DataSource = orderDetails;
             lvOrderDetails.DataBind();
         }
 
@@ -72,7 +72,7 @@ namespace Principal.wfrmOrders
             ShipNameLabel.Text = order.ShipName;
             IdStateLabel.Text = order.State.Name.ToString();
 
-            source = order.Order_Details.ToList();
+            orderDetails = order.Order_Details.ToList();
 
             BindListView();
 

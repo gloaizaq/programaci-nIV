@@ -109,13 +109,18 @@ namespace Principal.wfrmOrders
 
         private void BindListView()
         {
-            if (orderDetails.Any())
-            {
-                orderDetails.Reverse();
-                DetallesOrden.DataSource = orderDetails;
-                DetallesOrden.DataBind();
-                orderDetails.Reverse();
-            }
+            orderDetails.Reverse();
+            DetallesOrden.DataSource = orderDetails;
+            DetallesOrden.DataBind();
+            orderDetails.Reverse();
+        }
+
+        protected void BorrarDetalle_Click(object sender, EventArgs e)
+        {
+            LinkButton btn = (LinkButton)(sender);
+            int productID = Convert.ToInt32(btn.CommandArgument);
+            orderDetails.RemoveAll(detail => detail.ProductID == productID);
+            BindListView();
         }
     }
 }
