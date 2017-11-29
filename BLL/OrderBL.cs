@@ -19,6 +19,11 @@ namespace BLL
         {
             OrderDA.AddOrder(order);
         }
+
+        public static void UpdOrder(Order order)
+        {
+            OrderDA.UpdOrder(order);
+        }
        
         public static Order GetOrderById(int orderId)
         {

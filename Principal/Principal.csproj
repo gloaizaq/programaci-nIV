@@ -111,6 +111,7 @@
     <Content Include="wfrmOrders\wfrmOrderDetail.aspx" />
     <Content Include="wfrmOrders\wfrmOrdersList.aspx" />
     <Content Include="Dummy.Master" />
+    <Content Include="wfrmOrders\wfrmUpdOrder.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -170,6 +171,13 @@
     </Compile>
     <Compile Include="wfrmOrders\wfrmOrdersList.aspx.designer.cs">
       <DependentUpon>wfrmOrdersList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wfrmOrders\wfrmUpdOrder.aspx.cs">
+      <DependentUpon>wfrmUpdOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="wfrmOrders\wfrmUpdOrder.aspx.designer.cs">
+      <DependentUpon>wfrmUpdOrder.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

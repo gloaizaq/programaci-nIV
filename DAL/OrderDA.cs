@@ -71,5 +71,26 @@ namespace DAL
                 ctx.SubmitChanges();
             }
         }
+
+        public static void UpdOrder(Order order)
+        {
+            using (VentasCxtDataContext ctx = new VentasCxtDataContext())
+            {
+                var newOrder = ctx.Orders.Single(id => id.OrderID == order.OrderID);
+
+                newOrder.CustomerID = order.CustomerID;
+                newOrder.EmployeeID = order.EmployeeID;
+                newOrder.OrderDate = order.OrderDate;
+                newOrder.RequiredDate = order.RequiredDate;
+                newOrder.ShippedDate = order.ShippedDate;
+                newOrder.ShipVia = order.ShipVia;
+                newOrder.Freight = order.Freight;
+                newOrder.ShipName = order.ShipName;
+                newOrder.IdState = order.IdState;
+                newOrder.Order_Details = order.Order_Details;
+
+                ctx.SubmitChanges();
+            }
+        }
     }
 }

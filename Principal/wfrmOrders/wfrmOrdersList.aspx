@@ -22,7 +22,7 @@
                 </tr>
                 <tr runat="server" id="Contenido" ></tr>
                     <tr>
-                        <td class="contenedor-numeros" colspan="10">
+                        <td class="contenedor-numeros" colspan="12">
                             <asp:DataPager ID="PaginadorDatos" runat="server" PageSize="15" PagedControlID="lvOrders">
                                 <Fields>
                                     <asp:NumericPagerField
