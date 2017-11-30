@@ -41,5 +41,13 @@ namespace Principal
             Session["orderID"] = orderIdLabel.Text;
             Response.Redirect(resources.AspPages.OrderDetail);   
         }
+
+        protected void OrderDelete_ServerClick(object sender, EventArgs e)
+        {
+            ListViewDataItem item = (ListViewDataItem)(sender as Control).NamingContainer;
+            Label orderIdLabel = (Label)item.FindControl("orderIdLabel");
+            Session["orderID"] = orderIdLabel.Text;
+            Response.Redirect(resources.AspPages.UpdOrder);
+        }
     }
 }

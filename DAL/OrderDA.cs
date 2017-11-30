@@ -11,10 +11,9 @@ namespace DAL
 {
     public static class OrderDA
     {
+        private static VentasCxtDataContext ctx = new VentasCxtDataContext();
         public static List<Order> GetOrders()
         {
-            VentasCxtDataContext ctx = new VentasCxtDataContext();
-            
             var orders = (from order in ctx.Orders
                             select order).OrderByDescending(o => o.OrderID);
 
@@ -54,8 +53,6 @@ namespace DAL
         }
         public static Order GetOrderById(int orderId)
         {
-            VentasCxtDataContext ctx = new VentasCxtDataContext();
-            
             var orders = from order in ctx.Orders
                             where order.OrderID == orderId
                             select order;
@@ -74,23 +71,22 @@ namespace DAL
 
         public static void UpdOrder(Order order)
         {
-            using (VentasCxtDataContext ctx = new VentasCxtDataContext())
-            {
-                var newOrder = ctx.Orders.Single(id => id.OrderID == order.OrderID);
+            Order newOrder = new Order();
+            newOrder = ctx.Orders.Single(id => id.OrderID == order.OrderID);
 
-                newOrder.CustomerID = order.CustomerID;
-                newOrder.EmployeeID = order.EmployeeID;
-                newOrder.OrderDate = order.OrderDate;
-                newOrder.RequiredDate = order.RequiredDate;
-                newOrder.ShippedDate = order.ShippedDate;
-                newOrder.ShipVia = order.ShipVia;
-                newOrder.Freight = order.Freight;
-                newOrder.ShipName = order.ShipName;
-                newOrder.IdState = order.IdState;
-                newOrder.Order_Details = order.Order_Details;
+            newOrder.CustomerID = order.CustomerID;
+            newOrder.EmployeeID = order.EmployeeID;
+            newOrder.OrderDate = order.OrderDate;
+            newOrder.RequiredDate = order.RequiredDate;
+            newOrder.ShippedDate = order.ShippedDate;
+            newOrder.ShipVia = order.ShipVia;
+            newOrder.Freight = order.Freight;
+            newOrder.ShipName = order.ShipName;
+            newOrder.IdState = order.IdState;
+            newOrder.Order_Details = order.Order_Details;
 
-                ctx.SubmitChanges();
-            }
+            ctx.SubmitChanges();
+            
         }
     }
 }

@@ -90,8 +90,8 @@
                     </a>
                   </td>
                   <td runat="server">
-                    <a class="icono" ID="delete" runat="server" OnServerClick="OrderDetail_ServerClick">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    <a class="icono" ID="OrderDelete" runat="server" onserverclick="OrderDelete_ServerClick">
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                     </a>
                   </td>
                 </tr>

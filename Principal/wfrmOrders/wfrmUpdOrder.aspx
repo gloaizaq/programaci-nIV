@@ -64,7 +64,7 @@
             <div class="row">
                 <div class="col">
                     <label for="productDropDownList">Producto</label>
-                    <asp:DropDownList ID="productDropDownList" runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="productDropDownList" OnSelectedIndexChanged="productDropDownList_SelectedIndexChanged" runat="server"></asp:DropDownList>
                 </div>
                 <div class="col">
                     <label for="unitPriceTextBox">Precio por unidad</label>
@@ -84,7 +84,7 @@
             <div class="row">
                 <div class="col">
                     <label for="btnAgregarDetalle">&nbsp;</label>
-                    <asp:Button ID="btnAgregarDetalle" CssClass="btn"  runat="server" Text="Agregar" />
+                    <asp:Button ID="btnAgregarDetalle" CssClass="btn" OnClick="btnAgregarDetalle_Click" runat="server" Text="Agregar" />
                 </div>
             </div>
             <a class="popup-close" data-popup-close="popup-detail" href="#">x</a>
@@ -144,7 +144,7 @@
                         Text='<%#Eval("Discount") %>' />
                     </td>
                     <td runat="server">
-                    <asp:LinkButton CssClass="icono" ID="BorrarDetalle" runat="server" CommandArgument='<%#Eval("ProductID")%>'>
+                    <asp:LinkButton CssClass="icono" ID="BorrarDetalle" runat="server" OnClick="BorrarDetalle_Click" CommandArgument='<%#Eval("ProductID")%>'>
                         <i class="fa fa-trash" aria-hidden="true"></i>
                     </asp:LinkButton>
                   </td>

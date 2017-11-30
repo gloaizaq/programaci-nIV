@@ -21,15 +21,15 @@
         <div class="row">
             <div class="col">
                 <label for="orderDateTextBox">Fecha de la orden</label>
-                <asp:TextBox ID="orderDateTextBox" placeholder="dd/mm/aaaa" runat="server"></asp:TextBox>
+                <asp:TextBox ID="orderDateTextBox" placeholder="dd-mm-aaaa" runat="server"></asp:TextBox>
             </div>
             <div class="col">
                 <label for="requiredDateTextBox">Fecha requerida</label>
-                <asp:TextBox ID="requiredDateTextBox" placeholder="dd/mm/aaaa" runat="server"></asp:TextBox>
+                <asp:TextBox ID="requiredDateTextBox" placeholder="dd-mm-aaaa" runat="server"></asp:TextBox>
             </div>
             <div class="col">
                 <label for="shippedDateTextBox">Fecha de envío</label>
-                <asp:TextBox ID="shippedDateTextBox" placeholder="dd/mm/aaaa" runat="server"></asp:TextBox>
+                <asp:TextBox ID="shippedDateTextBox" placeholder="dd-mm-aaaa" runat="server"></asp:TextBox>
             </div>
         </div>
         
@@ -66,11 +66,13 @@
             <div class="row">
                 <div class="col">
                     <label for="productDropDownList">Producto</label>
-                    <asp:DropDownList ID="productDropDownList" runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="productDropDownList" OnSelectedIndexChanged="productDropDownList_SelectedIndexChanged" runat="server"></asp:DropDownList>
                 </div>
                 <div class="col">
+                    
                     <label for="unitPriceTextBox">Precio por unidad</label>
                     <asp:TextBox ID="unitPriceTextBox" runat="server" ReadOnly="true"></asp:TextBox>
+                        
                 </div>
             </div>
             <div class="row">
