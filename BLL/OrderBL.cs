@@ -38,5 +38,9 @@ namespace BLL
         {
             return OrderDA.GetDiscountAmount(orderID);
         }
+        public static void DelOrder(int orderID)
+        {
+            OrderDA.DelOrder(orderID);
+        }
     }
 }

@@ -83,10 +83,20 @@ namespace DAL
             newOrder.Freight = order.Freight;
             newOrder.ShipName = order.ShipName;
             newOrder.IdState = order.IdState;
+
             newOrder.Order_Details = order.Order_Details;
 
             ctx.SubmitChanges();
             
         }
+
+        public static void DelOrder(int orderID)
+        {
+            using (VentasCxtDataContext ctx = new VentasCxtDataContext())
+            {
+                Order order = ctx.Orders.Single(o => o.OrderID.Equals(orderID));
+                ctx.Orders.DeleteOnSubmit(order);
+                ctx.SubmitChanges();
+            }
     }
 }
