@@ -116,6 +116,13 @@ input[type=text], select {
     width: 50%;
     margin: 0 auto;
 }
+.errores {
+    border-radius: 3px 3px 3px 3px;
+    color: #D8000C;
+    position: fixed;
+    top: 10%;
+    right: 1%;
+}
 .row
 {
     display: table;

@@ -39,6 +39,9 @@ namespace Principal.wfrmOrders
                 CargarDropDownList(employeeDropDownList, DummyBL.GetEmployees(), "LastName", "EmployeeID");
                 CargarDropDownList(shipViaDropDownList, DummyBL.GetShippers(), "CompanyName", "ShipperID");
                 CargarDropDownList(productDropDownList, DummyBL.GetProducts(), "ProductName", "ProductID");
+                CargarUnitPrice();
+                orderDetails.Clear();
+                quantityTextBox.Text = "1";
             }
         }
         protected void Page_PreRender(object sender, EventArgs e)
@@ -118,6 +121,16 @@ namespace Principal.wfrmOrders
             DetallesOrden.DataBind();
             orderDetails.Reverse();
         }
+        protected void productDropDownList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargarUnitPrice();
+        }
+        private void CargarUnitPrice()
+        {
+            int productID = Convert.ToInt32(productDropDownList.SelectedValue);
+            var product = DummyBL.GetProductByID(productID);
+            unitPriceTextBox.Text = product.UnitPrice.ToString();
+        }
 
         protected void BorrarDetalle_Click(object sender, EventArgs e)
         {
@@ -125,14 +138,6 @@ namespace Principal.wfrmOrders
             int productID = Convert.ToInt32(btn.CommandArgument);
             orderDetails.RemoveAll(detail => detail.ProductID == productID);
             BindListView();
-        }
-
-        protected void productDropDownList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int productID = Convert.ToInt32(productDropDownList.SelectedValue);
-            var product = DummyBL.GetProductByID(productID);
-            unitPriceTextBox.Text = product.UnitPrice.ToString();
-            
         }
        
     }

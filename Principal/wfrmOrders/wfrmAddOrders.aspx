@@ -156,5 +156,37 @@
             </ItemTemplate>
         </asp:ListView>
         <asp:Button ID="btnAddOrden" OnClick="btnAddOrden_Click" CssClass="btn" runat="server" Text="Crear Orden" />
+        <div class="errores">
+            <div class="row">
+                <asp:RegularExpressionValidator Display="Dynamic" ID="orderDateValidator" ControlToValidate="orderDateTextBox" runat="server" ValidationExpression="[0-9]{2}[-]{1}[0-9]{2}[-|\/]{1}[0-9]{4}" ErrorMessage="El formato de la fecha de orden es incorrecto"></asp:RegularExpressionValidator>
+            </div>
+            <div class="row">
+                <asp:RegularExpressionValidator Display="Dynamic" ID="requiredDateValidator" ControlToValidate="requiredDateTextBox" runat="server" ValidationExpression="[0-9]{2}[-]{1}[0-9]{2}[-|\/]{1}[0-9]{4}" ErrorMessage="El formato de la fecha requerida es incorrecto"></asp:RegularExpressionValidator>
+            </div>
+            <div class="row">
+                <asp:RegularExpressionValidator Display="Dynamic" ID="shippedDateValidator" ControlToValidate="shippedDateTextBox" runat="server" ValidationExpression="[0-9]{2}[-]{1}[0-9]{2}[-|\/]{1}[0-9]{4}" ErrorMessage="El formato de la fecha de envío es incorrecto"></asp:RegularExpressionValidator>
+            </div>
+            <div class="row">
+                <asp:RegularExpressionValidator Display="Dynamic" ID="fleteValidator" ControlToValidate="freightTextBox" runat="server" ValidationExpression="^[1-9]\d*(\.\d+)?$" ErrorMessage="El precio del flete es incorrecto"></asp:RegularExpressionValidator>
+            </div>
+            <div class="row">
+                <asp:RegularExpressionValidator Display="Dynamic" ID="quantityValidator" ControlToValidate="quantityTextBox" runat="server" ValidationExpression="[+-]?[0-9]{1,10}" ErrorMessage="La cantidad es incorrecta"></asp:RegularExpressionValidator>
+            </div>
+            <div class="row">
+                <asp:RegularExpressionValidator Display="Dynamic" ID="discountValitator" ControlToValidate="discountTextBox" runat="server" ValidationExpression="^(?:0*(?:\.\d+)?|1(\.0*)?)$" ErrorMessage="El descuento no es válido"></asp:RegularExpressionValidator>
+            </div>
+            <div class="row">
+                <asp:RequiredFieldValidator Display="Dynamic" ID="requiredOrderDate" ControlToValidate="orderDateTextBox"  runat="server" ErrorMessage="La fecha de la orden es necesaria"></asp:RequiredFieldValidator>
+            </div>
+            <div class="row">
+                <asp:RequiredFieldValidator Display="Dynamic" ID="requiredRequiredDate" ControlToValidate="requiredDateTextBox"  runat="server" ErrorMessage="La fecha requeridad es necesaria"></asp:RequiredFieldValidator>
+            </div>
+            <div class="row">
+                <asp:RequiredFieldValidator Display="Dynamic" ID="requiredShippedName" ControlToValidate="shipNameTextBox"  runat="server" ErrorMessage="El nombre del envío es necesario"></asp:RequiredFieldValidator>
+            </div>
+            <div class="row">
+                <asp:RequiredFieldValidator Display="Dynamic" ID="quantityTextBoxValidator" ControlToValidate="quantityTextBox"  runat="server" ErrorMessage="La cantidad es necesaria"></asp:RequiredFieldValidator>
+            </div>
+        </div>
     </div>      
 </asp:Content>

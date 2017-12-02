@@ -42,6 +42,7 @@ namespace Principal.wfrmOrders
                 int orderID = Convert.ToInt32(Session["orderID"].ToString());
                 
                 CargarOrder(OrderBL.GetOrderById(orderID));
+                quantityTextBox.Text = "1";
             }
         }
         private void CargarOrder(Order order)
