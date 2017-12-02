@@ -180,7 +180,9 @@ namespace Principal.wfrmOrders
             try
             {
                 int orderID = Convert.ToInt32(Session["orderID"].ToString());
+                OrderBL.DelOrderDetails(orderID);
                 OrderBL.DelOrder(orderID);
+                Response.Redirect(resources.AspPages.OrderList);
             }
             catch (Exception)
             {

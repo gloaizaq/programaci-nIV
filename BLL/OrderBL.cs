@@ -33,6 +33,10 @@ namespace BLL
         {
             return OrderDA.GetOrderById(orderId);
         }
+        public static Order GetOrderByIdNoUsing(int orderId)
+        {
+            return OrderDA.GetOrderByIdNoUsing(orderId);
+        }
         public static List<Order_Detail> GetOrderDetails(int orderID)
         {
             return OrderDA.GetOrderDetails(orderID);

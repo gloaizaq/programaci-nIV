@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BEL;
-using System.Data.SqlClient;
-using System.Data.Linq;
 
 namespace DAL
 {
@@ -15,11 +10,13 @@ namespace DAL
         private static VentasCxtDataContext ctx = new VentasCxtDataContext();
         public static List<Order> GetOrders()
         {
-                var orders = (from order in ctx.Orders
+            
+            var orders = (from order in ctx.Orders
                               select order).OrderByDescending(o => o.OrderID);
 
-                return orders.ToList();
-            
+            ctx.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues, orders);
+
+            return orders.ToList();
         }
         public static decimal GetTotalOrderPrice(int orderID)
         {
@@ -57,12 +54,22 @@ namespace DAL
         {
             using (VentasCxtDataContext ctx = new VentasCxtDataContext())
             {
-                var orders = from order in ctx.Orders
-                             where order.OrderID == orderId
-                             select order;
+                var orders = (from order in ctx.Orders
+                          where order.OrderID == orderId
+                          select order);
 
                 return orders.SingleOrDefault<Order>();
             }
+        }
+        public static Order GetOrderByIdNoUsing(int orderId)
+        {
+            
+            var orders = (from order in ctx.Orders
+                            where order.OrderID == orderId
+                            select order);
+            ctx.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues, orders);
+            return orders.SingleOrDefault<Order>();
+            
         }
         public static List<Order_Detail> GetOrderDetails(int orderID)
         {
@@ -95,8 +102,6 @@ namespace DAL
         {
             using (VentasCxtDataContext ctx = new VentasCxtDataContext())
             {
-                
-
                 Order newOrder = new Order();
                 List<Order_Detail> details = new List<Order_Detail>();
                 newOrder = ctx.Orders.Single(id => id.OrderID == order.OrderID);
@@ -113,9 +118,6 @@ namespace DAL
                 newOrder.ShipName = order.ShipName;
                 newOrder.IdState = order.IdState;
 
-               
-
-
                 DelOrderDetails(order.OrderID);
                 
                 foreach (var detail in orderDetails)
@@ -130,7 +132,7 @@ namespace DAL
                     ctx.Order_Details.InsertOnSubmit(newOrderDetail);
                     
                 }
-
+                
                 ctx.SubmitChanges();
             }
         }
