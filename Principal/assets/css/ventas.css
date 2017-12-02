@@ -96,6 +96,10 @@ tbody tr:hover {
     border-color: #586994;
     outline: 0;
 }
+
+.btn-peligro {
+    background-color: rgba(255, 0, 0, 0.5);
+}
 /***************** Form *****************/
 input[type=text], select {
     width: 100%;
@@ -111,6 +115,13 @@ input[type=text], select {
 .contenedor {
     width: 50%;
     margin: 0 auto;
+}
+.errores {
+    border-radius: 3px 3px 3px 3px;
+    color: #D8000C;
+    position: fixed;
+    top: 10%;
+    right: 1%;
 }
 .row
 {
@@ -128,6 +139,9 @@ input[type=text], select {
     color: black;
     cursor: pointer;
 }
-/***************** Region *****************/
+/***************** Left *****************/
+.izq {
+    float: left;
+}
 /***************** Region *****************/
 /***************** Region *****************/

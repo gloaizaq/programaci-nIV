@@ -54,7 +54,7 @@ namespace Principal.wfrmOrders
         private void CargarOrder()
         {
             int orderID = Convert.ToInt32(Session["orderID"].ToString());
-            Order order = OrderBL.GetOrderById(orderID);
+            Order order = OrderBL.GetOrderByIdNoUsing(orderID);
 
             CompradorLabel.Text = order.Customer.ContactName;
             CompanniaLabel.Text = order.Customer.CompanyName;

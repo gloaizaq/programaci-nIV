@@ -19,10 +19,27 @@ namespace BLL
         {
             OrderDA.AddOrder(order);
         }
+        public static void AddOrderDetail(Order_Detail orderDetail)
+        {
+            OrderDA.AddOrderDetail(orderDetail);
+        }
+
+        public static void UpdOrder(Order order, List<Order_Detail> orderDetails)
+        {
+            OrderDA.UpdOrder(order, orderDetails);
+        }
        
         public static Order GetOrderById(int orderId)
         {
             return OrderDA.GetOrderById(orderId);
+        }
+        public static Order GetOrderByIdNoUsing(int orderId)
+        {
+            return OrderDA.GetOrderByIdNoUsing(orderId);
+        }
+        public static List<Order_Detail> GetOrderDetails(int orderID)
+        {
+            return OrderDA.GetOrderDetails(orderID);
         }
         public static decimal GetTotalOrderPrice(int orderID)
         {
@@ -32,6 +49,14 @@ namespace BLL
         public static decimal GetDiscountAmount(int orderID)
         {
             return OrderDA.GetDiscountAmount(orderID);
+        }
+        public static void DelOrder(int orderID)
+        {
+            OrderDA.DelOrder(orderID);
+        }
+        public static void DelOrderDetails(int orderID)
+        {
+            OrderDA.DelOrderDetails(orderID);
         }
     }
 }

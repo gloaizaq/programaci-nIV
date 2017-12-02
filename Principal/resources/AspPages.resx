@@ -126,4 +126,7 @@
   <data name="OrderList" xml:space="preserve">
     <value>~/wfrmOrders/wfrmOrdersList.aspx</value>
   </data>
+  <data name="UpdOrder" xml:space="preserve">
+    <value>~/wfrmOrders/wfrmUpdOrder.aspx</value>
+  </data>
 </root>

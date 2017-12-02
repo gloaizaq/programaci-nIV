@@ -1,13 +1,11 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Dummy.Master" AutoEventWireup="true" CodeBehind="wfrmAddOrders.aspx.cs" Inherits="Principal.wfrmOrders.wfrmAddOrders" %>
-
-<asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Dummy.Master" AutoEventWireup="true" CodeBehind="wfrmUpdOrder.aspx.cs" Inherits="Principal.wfrmOrders.wfrmUpdOrder" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <script src="../assets/js/popup.js"></script>
     <link href="../assets/css/popup.css" rel="stylesheet" />
 </asp:Content>
-<asp:Content ID="BodyContent" ContentPlaceHolderID="BodyContent" runat="server">
-
+<asp:Content ID="Content2" ContentPlaceHolderID="BodyContent" runat="server">
     <div class="contenedor">
-        <h1>Nueva orden</h1>
+        <h1>Editar orden</h1>
         <div class="row">
             <div class="col">
                 <label for="customerDropDownList">Cliente</label>
@@ -21,15 +19,15 @@
         <div class="row">
             <div class="col">
                 <label for="orderDateTextBox">Fecha de la orden</label>
-                <asp:TextBox ID="orderDateTextBox" placeholder="dd-mm-aaaa" runat="server"></asp:TextBox>
+                <asp:TextBox ID="orderDateTextBox" placeholder="dd/mm/aaaa" runat="server"></asp:TextBox>
             </div>
             <div class="col">
                 <label for="requiredDateTextBox">Fecha requerida</label>
-                <asp:TextBox ID="requiredDateTextBox" placeholder="dd-mm-aaaa" runat="server"></asp:TextBox>
+                <asp:TextBox ID="requiredDateTextBox" placeholder="dd/mm/aaaa" runat="server"></asp:TextBox>
             </div>
             <div class="col">
                 <label for="shippedDateTextBox">Fecha de envío</label>
-                <asp:TextBox ID="shippedDateTextBox" placeholder="dd-mm-aaaa" runat="server"></asp:TextBox>
+                <asp:TextBox ID="shippedDateTextBox" placeholder="dd/mm/aaaa" runat="server"></asp:TextBox>
             </div>
         </div>
         
@@ -69,10 +67,8 @@
                     <asp:DropDownList ID="productDropDownList" OnSelectedIndexChanged="productDropDownList_SelectedIndexChanged" runat="server"></asp:DropDownList>
                 </div>
                 <div class="col">
-                    
                     <label for="unitPriceTextBox">Precio por unidad</label>
                     <asp:TextBox ID="unitPriceTextBox" runat="server" ReadOnly="true"></asp:TextBox>
-                        
                 </div>
             </div>
             <div class="row">
@@ -155,7 +151,8 @@
                 </tr>
             </ItemTemplate>
         </asp:ListView>
-        <asp:Button ID="btnAddOrden" OnClick="btnAddOrden_Click" CssClass="btn" runat="server" Text="Crear Orden" />
+        <asp:Button ID="btnDelOrder" OnClick="btnDelOrder_Click" CssClass="btn izq" runat="server" Text="Borrar Orden" />
+        <asp:Button ID="btnUpdOrder" OnClick="btnUpdOrder_Click" CssClass="btn" runat="server" Text="Actualizar Orden" />
         <div class="errores">
             <div class="row">
                 <asp:RegularExpressionValidator Display="Dynamic" ID="orderDateValidator" ControlToValidate="orderDateTextBox" runat="server" ValidationExpression="[0-9]{2}[-]{1}[0-9]{2}[-|\/]{1}[0-9]{4}" ErrorMessage="El formato de la fecha de orden es incorrecto"></asp:RegularExpressionValidator>

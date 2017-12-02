@@ -10,7 +10,7 @@
 namespace Principal.wfrmOrders {
     
     
-    public partial class wfrmAddOrders {
+    public partial class wfrmUpdOrder {
         
         /// <summary>
         /// customerDropDownList control.
@@ -148,13 +148,22 @@ namespace Principal.wfrmOrders {
         protected global::System.Web.UI.WebControls.ListView DetallesOrden;
         
         /// <summary>
-        /// btnAddOrden control.
+        /// btnDelOrder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddOrden;
+        protected global::System.Web.UI.WebControls.Button btnDelOrder;
+        
+        /// <summary>
+        /// btnUpdOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpdOrder;
         
         /// <summary>
         /// orderDateValidator control.

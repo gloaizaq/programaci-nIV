@@ -86,5 +86,14 @@ namespace Principal.resources {
                 return ResourceManager.GetString("OrderList", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ~/wfrmOrders/wfrmUpdOrder.aspx.
+        /// </summary>
+        internal static string UpdOrder {
+            get {
+                return ResourceManager.GetString("UpdOrder", resourceCulture);
+            }
+        }
     }
 }

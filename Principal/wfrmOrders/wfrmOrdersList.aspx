@@ -17,13 +17,13 @@
                     <th runat="server">Carga</th>
                     <th runat="server">Nombre envío</th>
                     <th runat="server">Estado</th>
-                    <th runat="server"><i class="fa fa-eye" aria-hidden="true"></i></th>
-                    <th runat="server"><i class="fa fa-trash" aria-hidden="true"></i></th>
+                    <th runat="server">Ver</th>
+                    <th runat="server">Editar</th>
                 </tr>
                 <tr runat="server" id="Contenido" ></tr>
                     <tr>
-                        <td class="contenedor-numeros" colspan="10">
-                            <asp:DataPager ID="PaginadorDatos" runat="server" PageSize="15" PagedControlID="lvOrders">
+                        <td class="contenedor-numeros" colspan="12">
+                            <asp:DataPager ID="PaginadorDatos" runat="server" PageSize="14" PagedControlID="lvOrders">
                                 <Fields>
                                     <asp:NumericPagerField
                                       NextPreviousButtonCssClass="numeros"
@@ -90,8 +90,8 @@
                     </a>
                   </td>
                   <td runat="server">
-                    <a class="icono" ID="delete" runat="server" OnServerClick="OrderDetail_ServerClick">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    <a class="icono" ID="OrderDelete" runat="server" onserverclick="OrderDelete_ServerClick">
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                     </a>
                   </td>
                 </tr>
