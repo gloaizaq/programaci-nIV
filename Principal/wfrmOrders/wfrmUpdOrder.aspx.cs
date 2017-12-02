@@ -56,8 +56,10 @@ namespace Principal.wfrmOrders
             shipNameTextBox.Text = order.ShipName;
             stateDropDownList.SelectedValue = order.IdState.ToString();
 
+            CargarUnitPrice();
+
             orderDetails.Clear();
-            orderDetails.AddRange(order.Order_Details);
+            orderDetails.AddRange(OrderBL.GetOrderDetails(order.OrderID));
             BindListView();
         }
         protected void Page_PreRender(object sender, EventArgs e)
@@ -73,6 +75,7 @@ namespace Principal.wfrmOrders
         }
         private void UpdOrder()
         {
+
             Order order = new Order();
             order.OrderID = Convert.ToInt32(Session["orderID"].ToString());
             order.CustomerID = customerDropDownList.SelectedValue;
@@ -85,10 +88,24 @@ namespace Principal.wfrmOrders
             order.ShipName = shipNameTextBox.Text.Trim();
             order.IdState = Convert.ToInt32(stateDropDownList.SelectedValue);
 
-            order.Order_Details.Clear();
-            order.Order_Details.AddRange(orderDetails);
+            OrderBL.DelOrderDetails(order.OrderID);
 
-            OrderBL.UpdOrder(order);
+            //AddOrderDetails(orderDetails, order.OrderID);
+
+            foreach(var orderDetail in orderDetails)
+            {
+                orderDetail.OrderID = order.OrderID;
+            }
+
+            OrderBL.UpdOrder(order, orderDetails);
+        }
+        private void AddOrderDetails(List<Order_Detail> orderDetails, int orderID)
+        {
+            foreach (var orderDetail in orderDetails)
+            {
+                orderDetail.OrderID = orderID;
+                OrderBL.AddOrderDetail(orderDetail);
+            }
         }
 
         protected void btnUpdOrder_Click(object sender, EventArgs e)
@@ -149,10 +166,28 @@ namespace Principal.wfrmOrders
         }
         protected void productDropDownList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            CargarUnitPrice();
+        }
+        private void CargarUnitPrice()
+        {
             int productID = Convert.ToInt32(productDropDownList.SelectedValue);
             var product = DummyBL.GetProductByID(productID);
             unitPriceTextBox.Text = product.UnitPrice.ToString();
-
         }
+
+        protected void btnDelOrder_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int orderID = Convert.ToInt32(Session["orderID"].ToString());
+                OrderBL.DelOrder(orderID);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        
     }
 }

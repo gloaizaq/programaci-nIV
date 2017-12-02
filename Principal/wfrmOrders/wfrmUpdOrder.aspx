@@ -151,7 +151,7 @@
                 </tr>
             </ItemTemplate>
         </asp:ListView>
-        <asp:Button ID="btnDelOrder" CssClass="btn izq btn-peligro" runat="server" Text="Borrar Orden" />
+        <asp:Button ID="btnDelOrder" OnClick="btnDelOrder_Click" CssClass="btn izq btn-peligro" runat="server" Text="Borrar Orden" />
         <asp:Button ID="btnUpdOrder" OnClick="btnUpdOrder_Click" CssClass="btn" runat="server" Text="Actualizar Orden" />
     </div>      
 </asp:Content>
