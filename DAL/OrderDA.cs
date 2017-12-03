@@ -73,13 +73,15 @@ namespace DAL
         }
         public static List<Order_Detail> GetOrderDetails(int orderID)
         {
-            using (VentasCxtDataContext ctx = new VentasCxtDataContext())
-            {
+            //using (VentasCxtDataContext ctx = new VentasCxtDataContext())
+            //{
                 var orders = (from order in ctx.Order_Details
                              where order.OrderID == orderID
                              select order);
-                return orders.ToList<Order_Detail>();
-            }
+            ctx.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues, orders);
+
+            return orders.ToList<Order_Detail>();
+            //}
         }
         public static void AddOrder(Order order)
         {

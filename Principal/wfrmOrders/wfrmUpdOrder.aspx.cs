@@ -57,9 +57,11 @@ namespace Principal.wfrmOrders
             shipNameTextBox.Text = order.ShipName;
             stateDropDownList.SelectedValue = order.IdState.ToString();
 
+
             CargarUnitPrice();
 
             orderDetails.Clear();
+
             orderDetails.AddRange(OrderBL.GetOrderDetails(order.OrderID));
             BindListView();
         }
@@ -127,21 +129,32 @@ namespace Principal.wfrmOrders
         {
             try
             {
-                Order_Detail orderDetail = new Order_Detail();
-                orderDetail.ProductID = Convert.ToInt32(productDropDownList.SelectedValue);
-                orderDetail.UnitPrice = Convert.ToDecimal(unitPriceTextBox.Text.Trim());
-                orderDetail.Quantity = Convert.ToInt16(quantityTextBox.Text.Trim());
-                if (discountTextBox.Text.Trim().Equals(String.Empty))
+                int selectedProductID = Convert.ToInt32(productDropDownList.SelectedValue);
+                if (orderDetails.Any(o => o.ProductID == selectedProductID))
                 {
-                    orderDetail.Discount = 0;
+                    foreach (var orderDetail in orderDetails.Where(o => o.ProductID == selectedProductID))
+                    {
+                        orderDetail.Quantity += Convert.ToInt16(quantityTextBox.Text.Trim());
+                    }
                 }
                 else
                 {
-                    orderDetail.Discount = Convert.ToSingle(discountTextBox.Text.Trim());
+                    Order_Detail orderDetail = new Order_Detail();
+                    orderDetail.ProductID = Convert.ToInt32(productDropDownList.SelectedValue);
+                    orderDetail.Product = DummyBL.GetProductByID(Convert.ToInt32(productDropDownList.SelectedValue));
+                    orderDetail.UnitPrice = Convert.ToDecimal(unitPriceTextBox.Text.Trim());
+                    orderDetail.Quantity = Convert.ToInt16(quantityTextBox.Text.Trim());
+                    if (discountTextBox.Text.Trim().Equals(String.Empty))
+                    {
+                        orderDetail.Discount = 0;
+                    }
+                    else
+                    {
+                        orderDetail.Discount = Convert.ToSingle(discountTextBox.Text.Trim());
+                    }
+
+                    orderDetails.Add(orderDetail);
                 }
-
-                orderDetails.Add(orderDetail);
-
                 BindListView();
             }
             catch (Exception)
