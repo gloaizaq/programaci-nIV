@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using BEL;
 using BLL;
+using System.ComponentModel;
 
 namespace Principal.wfrmOrders
 {
@@ -62,7 +63,14 @@ namespace Principal.wfrmOrders
             order.EmployeeID = Convert.ToInt32(employeeDropDownList.SelectedValue);
             order.OrderDate = DateTime.ParseExact(orderDateTextBox.Text.Trim(), "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture);
             order.RequiredDate = DateTime.ParseExact(requiredDateTextBox.Text.Trim(), "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture);
-            order.ShippedDate = DateTime.ParseExact(shippedDateTextBox.Text.Trim(), "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture);
+            if (shippedDateTextBox.Text.Trim().Equals(String.Empty))
+            {
+                order.ShippedDate = null;
+            }
+            else
+            {
+                order.ShippedDate = DateTime.ParseExact(shippedDateTextBox.Text.Trim(), "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture);
+            }
             order.ShipVia = Convert.ToInt32(shipViaDropDownList.SelectedValue);
             order.Freight = Convert.ToDecimal(freightTextBox.Text.Trim());
             order.ShipName = shipNameTextBox.Text.Trim();
@@ -78,7 +86,6 @@ namespace Principal.wfrmOrders
             try
             {
                 AddOrder();
-
                 Response.Redirect(resources.AspPages.OrderList);
             }
             catch (Exception)
@@ -91,21 +98,34 @@ namespace Principal.wfrmOrders
         {
             try
             {
-                Order_Detail orderDetail = new Order_Detail();
-                orderDetail.ProductID = Convert.ToInt32(productDropDownList.SelectedValue);
-                orderDetail.UnitPrice = Convert.ToDecimal(unitPriceTextBox.Text.Trim());
-                orderDetail.Quantity = Convert.ToInt16(quantityTextBox.Text.Trim());
-                if (discountTextBox.Text.Trim().Equals(String.Empty))
+                int selectedProductID = Convert.ToInt32(productDropDownList.SelectedValue);
+                if (orderDetails.Any(o => o.ProductID == selectedProductID))
                 {
-                    orderDetail.Discount = 0;
+                    foreach (var orderDetail in orderDetails.Where(o => o.ProductID == selectedProductID))
+                    {
+                        orderDetail.Quantity+= Convert.ToInt16(quantityTextBox.Text.Trim());
+                    }
                 }
                 else
                 {
-                    orderDetail.Discount = Convert.ToSingle(discountTextBox.Text.Trim());
+                    Order_Detail orderDetail = new Order_Detail();
+                    orderDetail.ProductID = Convert.ToInt32(productDropDownList.SelectedValue);
+                    //var producto = DummyBL.GetProductByID(Convert.ToInt32(productDropDownList.SelectedValue));
+                   
+                    //orderDetail.Product = DummyBL.GetProductByID(Convert.ToInt32(productDropDownList.SelectedValue));
+                    orderDetail.UnitPrice = Convert.ToDecimal(unitPriceTextBox.Text.Trim());
+                    orderDetail.Quantity = Convert.ToInt16(quantityTextBox.Text.Trim());
+                    if (discountTextBox.Text.Trim().Equals(String.Empty))
+                    {
+                        orderDetail.Discount = 0;
+                    }
+                    else
+                    {
+                        orderDetail.Discount = Convert.ToSingle(discountTextBox.Text.Trim());
+                    }
+
+                    orderDetails.Add(orderDetail);
                 }
-
-                orderDetails.Add(orderDetail);
-
                 BindListView();
             }
             catch (Exception)
@@ -139,6 +159,12 @@ namespace Principal.wfrmOrders
             orderDetails.RemoveAll(detail => detail.ProductID == productID);
             BindListView();
         }
-       
+        public string GetProductName(string productID)
+        {
+            int selectedProductID = Convert.ToInt32(productID);
+            var producto = DummyBL.GetProductByID(Convert.ToInt32(selectedProductID));
+            return producto.ProductName;
+        }
+
     }
 }

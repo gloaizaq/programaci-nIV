@@ -27,13 +27,12 @@
             <li><a href="#">Inicio</a></li>
             <li><a href="#">Productos</a></li>
             <li><a href="#">Compra</a></li>
-            <li><a href="#">Tranportistas</a></li>
+            <li><a href="#">Transportistas</a></li>
             <li class="dropdown">
             <a href="javascript:void(0)" class="dropbtn">Ordenes</a>
             <div class="dropdown-content">
-                <a href="#">Lista</a>
-                <a href="#">Agregar</a>
-                <a href="#">Estados</a>
+                <a href="wfrmOrdersList.aspx">Lista</a>
+                <a href="wfrmAddOrders.aspx">Agregar</a>
             </div>
             </li>
         </ul>
