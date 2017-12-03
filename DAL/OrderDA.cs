@@ -8,6 +8,7 @@ namespace DAL
     public static class OrderDA
     {
         private static VentasCxtDataContext ctx = new VentasCxtDataContext();
+        
         public static List<Order> GetOrders()
         {
             

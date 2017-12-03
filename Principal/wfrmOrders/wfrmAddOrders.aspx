@@ -133,7 +133,7 @@
                 <tr runat="server">
                     <td runat="server">
                     <asp:Label ID="orderIdLabel" runat="server" 
-                    Text='<%#Eval("Product.ProductName") %>' />
+                    Text='<%# GetProductName(Eval("ProductID").ToString()) %>' />
                     </td>
                     <td runat="server">
                     <asp:Label ID="Label1" runat="server" 
